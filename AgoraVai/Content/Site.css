@@ -1,0 +1,441 @@
+﻿* {
+    font-family: 'Trebuchet MS', Haettenschweiler, sans-serif;
+    /*font-family: Calibri, 'Trebuchet MS', sans-serif;*/
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+.btn--padding {
+    padding: 5px 15px;
+}
+
+.btn {
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #000;
+    border: 2px #000 solid;
+    border-radius: 50px;
+}
+
+/*CUIDADO COM ESSA MERDA*/
+.login--paragraph {
+    font-size: 17px;
+    text-transform: capitalize;
+}
+.form--paragraph {
+    font-size: 17px;
+    text-transform: capitalize;
+
+}
+/*CUIDADO COM ESSA MERDA*/
+
+.login--inputs {
+    all: unset;
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    margin: 0 10px;
+    width: 100%;
+}
+.login--inputs__add {
+    padding: 0 10px;
+    margin: 0 10px;
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.btn__pattern {
+    background-color: #131312;
+    color: white;
+}
+.white {
+    color: white;
+    font-size: 17px;
+}
+
+header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url("../img/car.jpg");
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+    header .btn--login {
+        padding: 10px 45px;
+        margin-top: 20px;
+        background-color: transparent;
+        font-size: 20px;
+    }
+
+        header .btn--login:hover {
+            -webkit-transition: 0.2s;
+            transition: 0.2s;
+            color: #fff;
+            border: 2px #fff solid;
+        }
+
+    header h1 {
+        font-size: 65px;
+        font-weight: 600;
+    }
+
+    header h6 {
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+section.pattern {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+    padding: 150px 0;
+}
+
+    section.pattern h3 {
+        font-size: 28px;
+        text-transform: uppercase;
+        padding-bottom: 20px;
+    }
+
+    section.pattern p {
+        font-size: 17px;
+        width: 55%;
+        text-align: center;
+        line-height: 25px;
+    }
+
+section.pattern__describe {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url("../img/asphalt.jpg");
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    color: white;
+    padding: 100px 20px 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    height: auto;
+    position: relative;
+}
+
+    section.pattern__describe h3 {
+        position: absolute;
+        top: 8%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        font-size: 28px;
+        text-transform: uppercase;
+    }
+
+    section.pattern__describe .pattern__describe--infos {
+        width: 300px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+        text-align: center;
+        margin: 20px;
+    }
+
+        section.pattern__describe .pattern__describe--infos i {
+            color: white;
+            border: 3px solid #fff;
+            border-radius: 100%;
+            font-size: 62px;
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+            padding-top: 37px;
+        }
+
+        section.pattern__describe .pattern__describe--infos p {
+            font-size: 17px;
+        }
+
+footer {
+    padding: 60px 0;
+    text-align: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #131312;
+    color: white;
+    font-size: 17px;
+}
+
+.formulario__h4 {
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: 20px 20px 0 0;
+    padding: 25px 0;
+    background-color: #131312;
+    color: white;
+    font-size: 25px;
+}
+
+.tabela__up {
+    
+}
+.section--login {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: flex-start;
+/*AQUI AQUI AQUI AQUI AQUI AQUI*/
+    margin: 100px 0;
+/*AQUI AQUI AQUI AQUI AQUI AQUI*/
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: auto;
+    /*background-color: #eeeeee;*/
+}
+
+    .section--login .gradient {
+        width: 700px;
+        height: 170px;
+        background-image: url("../img/login.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 10px 10px 0 0;
+        opacity: 0.9;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+    }
+
+        .section--login .gradient p {
+            text-transform: uppercase;
+            color: #000000;
+            font-weight: 600;
+            font-size: 38px;
+        }
+
+    .section--login .form {
+        width: 700px;
+        height: auto;
+        padding: 50px 100px;
+    }
+
+    .section--login .form--login {
+        background-color: #fff;
+        border-radius: 0 0 10px 10px;
+    }
+
+        .section--login .form--login .form--edges {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-pack: distribute;
+            justify-content: space-around;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+            margin-top: 20px;
+        }
+
+            .section--login .form--login .form--edges .btn--login {
+                padding: 10px 30px;
+            }
+
+
+
+.navegation {
+    background-color: #131312;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    padding: 10px 40px;
+}
+
+    .navegation ul {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+        .navegation ul li {
+            margin: 0 15px;
+            color: white;
+        }
+
+/*
+// TABELAS - TABELAS - TABELAS - TABELAS - TABELAS - TABELAS - TABELAS - TABELAS
+// TABELAS - TABELAS - TABELAS - TABELAS - TABELAS - TABELAS - TABELAS - TABELAS
+// TABELAS - TABELAS - TABELAS - TABELAS - TABELAS - TABELAS - TABELAS - TABELAS
+*/
+
+.tabela {
+    width: 1000px;
+    height: auto;
+    border-radius: 10px;
+}
+
+
+.tabela__bold {
+    background-color: #343434;
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.tabela--infos {
+    overflow-y: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    padding: 20px 25px;
+    margin: 5px 0;
+    border: 1px solid #131312;
+    border-radius: 20px;
+}
+
+    .tabela--infos:nth-child(even) {
+        background-color: #ccc;
+    }
+
+
+table tr {
+    text-align: center;
+}
+
+.tabela--search {
+    all: unset;
+    width: 92%;
+    padding-left: 4px;
+}
+
+.tabela--search__div {
+    width: 1000px;
+    border: 1px solid #131312;
+    border-radius: 20px;
+    padding: 12px;
+}
+
+.formulario__input {
+    padding-left: 20px;
+    margin: 20px 0;
+    border-radius: var(--size-fullradius);
+    width: 100%;
+    height: 55px;
+    color: var(--color-black);
+    font-size: var(--font-p);
+    background-color: #dcdcdc;
+}
+
+::-webkit-input-placeholder {
+    color: #131312;
+}
+
+:-ms-input-placeholder {
+    color: #131312;
+}
+
+::-ms-input-placeholder {
+    color: #131312;
+}
+
+::placeholder {
+    color: #131312;
+}
+/*# sourceMappingURL=style.css.map */

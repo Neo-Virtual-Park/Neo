@@ -1,0 +1,59 @@
+﻿@model AgoraVai.Models.Movimentacao
+@{
+    ViewBag.Title = "NVP - Movimentação";
+    Layout = "~/Views/Shared/_Movimentacao.cshtml";
+}
+
+<section class="section--login">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <h4 class="formulario__h4">Movimentação</h4>
+        <div class="formulario">
+            @Html.LabelFor(model => model.Cpf, htmlAttributes: new { @class = "login--paragraph" })
+            @Html.EditorFor(model => model.Cpf, new { htmlAttributes = new { @class = "login--inputs" } })
+            @Html.ValidationMessageFor(model => model.Cpf, "", new { @class = "text-danger" })
+
+            @Html.LabelFor(model => model.Telefone, htmlAttributes: new { @class = "login--paragraph" })
+            @Html.EditorFor(model => model.Telefone, new { htmlAttributes = new { @class = "formulario__input" } })
+            @Html.ValidationMessageFor(model => model.Telefone, "", new { @class = "text-danger" })
+
+            @Html.LabelFor(model => model.Placa, htmlAttributes: new { @class = "login--paragraph" })
+            @Html.EditorFor(model => model.Placa, new { htmlAttributes = new { @class = "login--inputs" } })
+            @Html.ValidationMessageFor(model => model.Placa, "", new { @class = "text-danger" })
+
+            @Html.LabelFor(model => model.hora_entrada, htmlAttributes: new { @class = "login--paragraph" })
+            @Html.EditorFor(model => model.hora_entrada, new { htmlAttributes = new { @class = "login--inputs" } })
+            @Html.ValidationMessageFor(model => model.hora_entrada, "", new { @class = "text-danger" })
+
+            @Html.LabelFor(model => model.FuncionarioId, "Funcionario", htmlAttributes: new { @class = "login--paragraph" })
+            @Html.DropDownList("FuncionarioId", null, htmlAttributes: new { @class = "login--inputs" })
+            @Html.ValidationMessageFor(model => model.FuncionarioId, "", new { @class = "text-danger" })
+
+            @Html.LabelFor(model => model.Hora_saida, htmlAttributes: new { @class = "login--paragraph" })
+            @Html.EditorFor(model => model.Hora_saida, new { htmlAttributes = new { @class = "login--inputs" } })
+            @Html.ValidationMessageFor(model => model.Hora_saida, "", new { @class = "text-danger" })
+
+            @Html.LabelFor(model => model.Valor_pagar, htmlAttributes: new { @class = "login--paragraph" })
+            @Html.EditorFor(model => model.Valor_pagar, new { htmlAttributes = new { @class = "login--inputs" } })
+            @Html.ValidationMessageFor(model => model.Valor_pagar, "", new { @class = "text-danger" })
+
+            @Html.LabelFor(model => model.VagaId, "Vaga", htmlAttributes: new { @class = "login--paragraph" })
+            @Html.DropDownList("VagaId", null, htmlAttributes: new { @class = "login--inputs__add" })
+            @Html.ValidationMessageFor(model => model.VagaId, "", new { @class = "text-danger" })
+
+            <input type="submit" value="Cadastrar" class="btn btn--login btn__pattern" />
+        </div>
+    }
+
+</section>
+
+<div>
+    @*@Html.ActionLink("Back to List", "Index")*@
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

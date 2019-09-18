@@ -1,0 +1,85 @@
+﻿@model AgoraVai.Models.Movimentacao
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Movimentacao.cshtml";
+}
+
+<section class="section__formulario">
+
+	@using (Html.BeginForm())
+	{
+		@Html.AntiForgeryToken()
+
+		<h4 class="formulario__h4">Movimentacao</h4>
+		<div class="formulario">
+			@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+			@Html.HiddenFor(model => model.Id)
+			<div class="formulario__titulo--linha">
+
+				@Html.LabelFor(model => model.Cpf, "Cpf: ", htmlAttributes: new { @class = "formulario__titulo" })
+				@Html.DisplayFor(model => model.Cpf, new { htmlAttributes = new { @class = "formulario__titulo" } })
+				@Html.ValidationMessageFor(model => model.Cpf, "", new { @class = "text-danger" })
+			</div>
+			<div class="formulario__titulo--linha">
+
+				@Html.LabelFor(model => model.Telefone, "Telefone: ", htmlAttributes: new { @class = "formulario__titulo" })
+				@Html.DisplayFor(model => model.Telefone, new { htmlAttributes = new { @class = "formulario__titulo" } })
+				@Html.ValidationMessageFor(model => model.Telefone, "", new { @class = "text-danger" })
+			</div>
+			<div class="formulario__titulo--linha">
+
+				@Html.LabelFor(model => model.Placa, "Placas: ", htmlAttributes: new { @class = "formulario__titulo" })
+				@Html.DisplayFor(model => model.Placa, new { htmlAttributes = new { @class = "formulario__titulo" } })
+				@Html.ValidationMessageFor(model => model.Placa, "", new { @class = "text-danger" })
+			</div>
+			<div class="formulario__titulo--linha">
+
+				@Html.LabelFor(model => model.hora_entrada, "Hora de Entrada: ", htmlAttributes: new { @class = "formulario__titulo" })
+				@Html.DisplayFor(model => model.hora_entrada, new { htmlAttributes = new { @class = "formulario__titulo" } })
+				@Html.ValidationMessageFor(model => model.hora_entrada, "", new { @class = "text-danger" })
+			</div>
+			<div class="formulario__titulo--linha">
+
+				@Html.LabelFor(model => model.Funcionario.Pessoa.Nome, "Funcionario: ", htmlAttributes: new { @class = "formulario__titulo" })
+				@Html.DisplayFor(model => model.Funcionario.Pessoa.Nome)
+				@Html.ValidationMessageFor(model => model.FuncionarioId, "", new { @class = "text-danger" })
+			</div>
+            <div class="formulario__titulo--linha">
+
+                @Html.LabelFor(model => model.Hora_saida, htmlAttributes: new { @class = "formulario__titulo" })
+                <br />
+                <br />
+                @ViewBag.horaSaida
+                @Html.ValidationMessageFor(model => model.Hora_saida, "", new { @class = "text-danger" })
+            </div>
+            <div class="formulario__titulo--linha">
+
+                @Html.LabelFor(model => model.Valor_pagar, htmlAttributes: new { @class = "formulario__titulo" })
+                <br />
+                <br />
+                @ViewBag.Vp
+                @Html.ValidationMessageFor(model => model.Valor_pagar, "", new { @class = "text-danger" })
+            </div>
+			<div class="formulario__titulo--linha">
+				@Html.LabelFor(model => model.Vaga.Tipo, "Vaga", htmlAttributes: new { @class = "formulario__titulo" })
+				@Html.DisplayFor(model => model.Vaga.Tipo)
+				@*<div class="col-md-10">
+			@Html.DropDownList("VagaId", null, htmlAttributes: new { @class = "formulario__titulo" })
+			@Html.ValidationMessageFor(model => model.VagaId, "", new { @class = "text-danger" })
+		</div>*@
+
+				<input type="submit" value="Salvar" class="formulario__button" />
+			</div>
+		</div>
+
+	}
+
+</section>
+
+<div>
+	@Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,67 @@
+﻿@model AgoraVai.Models.Funcionario
+
+@{
+    ViewBag.Title = "Login";
+}
+
+@*<section class="section--login">
+    <div class="gradient">
+        <p>Login</p>
+    </div>
+    <form action="" class="form form--login">
+        <div class="form--edges">
+            <p>Email: </p>
+            <input type="email">
+        </div>
+        <div class="form--edges">
+            <p>Senha: </p>
+            <input type="password">
+        </div>
+        <div class="form--edges">
+            <button class="btn" id="btn-login">Entrar</button>
+            <a href="#">Esqueci a senha</a>
+        </div>
+    </form>
+</section>*@
+
+
+<section class="section--login">
+    @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+    {
+        //cria a tag do formulário
+        @Html.AntiForgeryToken() // previne o ataque CSRF
+        @Html.ValidationSummary(true)
+        if (@ViewBag.Message != null)
+        {
+            <div style="border:1px solid red">
+                @ViewBag.Message
+            </div>
+        }
+        <div class="gradient">
+            <p>Login</p>
+        </div>
+
+        <div class="form form--login">
+            <div class="form--edges">
+                @Html.LabelFor(a => a.Email, htmlAttributes: new { @class = "login--paragraph" })
+                @Html.TextBoxFor(a => a.Email, htmlAttributes: new { @class = "login--inputs" })
+                @Html.ValidationMessageFor(a => a.Email)
+            </div>
+            <div class="form--edges">
+                @Html.LabelFor(a => a.Senha, htmlAttributes: new { @class = "login--paragraph" })
+                @Html.PasswordFor(a => a.Senha, htmlAttributes: new { @class = "login--inputs" })
+                @Html.ValidationMessageFor(a => a.Senha)
+            </div>
+            <div class="form--edges">
+                <input type="submit" value="Entrar" class="btn btn--login btn__pattern" />
+            </div>
+        </div>
+
+    }
+
+</section>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

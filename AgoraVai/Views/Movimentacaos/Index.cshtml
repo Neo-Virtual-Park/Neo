@@ -1,0 +1,94 @@
+﻿@model IEnumerable<AgoraVai.Models.Movimentacao>
+@{
+    /**/
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Movimentacao.cshtml";
+
+}
+
+@*<input style="height: 50px; width: 50%; text-align: center; background-color: #318aff; border-radius: 200px; font-size: 28px; color: black;" type="text" name="Pesquisa" placeholder="Pesquisar..." id="pesquisa" />*@
+
+<section class="section--login">
+    <div class="tabela--search__div">
+        <i class="fas fa-search"></i>
+        <input type="text" class="tabela--search" placeholder="Pesquisar placa...">
+    </div>
+
+    <table class="tabela tabela__up">
+        <tr class="tabela--infos tabela__bold">
+            <th>
+                @Html.DisplayNameFor(model => model.Funcionario.Pessoa.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vaga.Tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cpf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Placa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hora_entrada)
+            </th>
+            <th>Finalizar</th>
+            @*<th></th>*@
+        </tr>
+        @ViewBag.ArrecadacaoDia
+
+        @foreach (var item in Model)
+        {
+            <tr class="tabela--infos">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Funcionario.Pessoa.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Vaga.Tipo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cpf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Placa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hora_entrada)
+                </td>
+                <td>
+                    @Html.ActionLink("Finalizar", "Edit", new { id = item.Id }, new { @class = "btn btn--login btn__pattern btn--padding" })
+                    @*@Html.ActionLink("Detalhes", "Details", new { id = item.Id })*@
+                    @*@Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+                </td>
+            </tr>
+        }
+
+    </table>
+</section>
+
+<script>
+    function searchFilter() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.querySelector('.tabela--search');
+        filter = input.value.toUpperCase();
+        table = document.querySelector('.tabela');
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[4];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+    document.querySelector('.tabela--search').addEventListener('keyup', searchFilter);
+</script>

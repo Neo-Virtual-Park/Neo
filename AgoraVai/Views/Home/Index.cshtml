@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    //Layout = "~/Views/Shared/_Cadastros.cshtml";
+}
+
+<header>
+    <!-- <i>ICONE DE MERDA QUE NAO ME ENTREGARAM</!-->
+    <h1>neo virtual park</h1>
+    <h6>software para gerenciamento de estacionamentos</h6>
+    @Html.ActionLink("Login", "Login", "Home", new { area = "" }, new { @class = "btn btn--login " })
+    @*<a href="~/Views/Home/Login.cshtml" class="btn" id="btn-login">Login</a>*@
+</header>
+
+<section class="pattern">
+    <h3>nosso trabalho</h3>
+    <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora quam possimus obcaecati eius quae, quos
+        quia tenetur! Totam rem dolorem cumque officia sed error omnis autem, maxime quisquam, placeat quibusdam.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus dolorum sequi fugiat pariatur est quos
+        vero dolore? Laudantium maiores impedit accusantium quod repellendus repellat culpa modi perferendis,
+        delectus aspernatur debitis?
+    </p>
+</section>
+
+<section class="pattern__describe">
+    <h3 class="pos">Serviços</h3>
+    <div class="pattern__describe--infos">
+        <i class="fas fa-chart-line"></i>
+        <p>
+            Nosso objetivo é ajudar no gerenciamento de estacionamentos, com o intuito de automatizar e aprimorar
+            a maneira como eles trabalham.
+        </p>
+    </div>
+    <div class="pattern__describe--infos">
+        <i class="fas fa-dollar-sign"></i>
+        <p>
+            O sistema possui um fluxo de caixa que apresenta todos os registros de movimentação do
+            estacionamento.
+        </p>
+    </div>
+    <div class="pattern__describe--infos">
+        <i class="fas fa-stopwatch"></i>
+        <p>
+            O sistema possui um ágil controle de entrada e saída que auxilia na rotatividade, calculando o tempo
+            e o
+            valor a pagar de cada carro
+        </p>
+    </div>
+    <div class="pattern__describe--infos">
+        <i class="fas fa-user"></i>
+        <p>
+            O cadastro é fundamental para acessar o sistema, assim ficará visível quem realizou todas as ações,
+            tornando-a
+            responsável pelas mesmas.
+        </p>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; Neo virtual park - Todos os direitos reservados</p>
+</footer>
+

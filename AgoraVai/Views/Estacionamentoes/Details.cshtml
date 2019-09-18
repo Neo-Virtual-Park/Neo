@@ -1,0 +1,86 @@
+﻿@model AgoraVai.Models.Estacionamento
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_TelaADM.cshtml";
+
+}
+
+<section class="section__formulario">
+
+<div>
+    <h4 class="formulario__h4">Estacionamento</h4>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Funcionario.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Funcionario.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gerente.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gerente.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bairro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bairro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rua)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rua)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.complemento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.complemento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ativo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ativo)
+        </dd>
+
+    </dl>
+</div>
+
+</section>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
