@@ -225,10 +225,11 @@ footer {
     background-color: #131312;
     color: white;
     font-size: 25px;
+    width: 700px;
 }
 
 .tabela__up {
-    
+    padding: 0px;
 }
 .section--login {
     display: -webkit-box;
@@ -287,6 +288,7 @@ footer {
         width: 700px;
         height: auto;
         padding: 50px 100px;
+        border: 1px solid #f3f3f3;
     }
 
     .section--login .form--login {
@@ -332,6 +334,11 @@ footer {
     -ms-flex-flow: row nowrap;
     flex-flow: row nowrap;
     padding: 10px 40px;
+}
+.navegation img {
+    width: 60px;
+    height: 60px;
+
 }
 
     .navegation ul {
@@ -469,3 +476,11 @@ table tr {
 .fatu-green {
     background-color: #00ff00;
 }
+
+
+
+/*
+    SANGRIA
+    SANGRIA
+    SANGRIA
+*/
