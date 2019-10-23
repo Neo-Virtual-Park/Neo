@@ -162,8 +162,7 @@
     <Compile Include="Controllers\CadastrarFuncController.cs" />
     <Compile Include="Controllers\CadastroGerenteController.cs" />
     <Compile Include="Controllers\EntradasController.cs" />
-    <Compile Include="Controllers\EstacionamentoesController.cs" />
-    <Compile Include="Controllers\FuncionariosController.cs" />
+    <Compile Include="Controllers\GerentesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MovimentacaosController.cs" />
     <Compile Include="Controllers\PessoasController.cs" />
@@ -254,13 +253,13 @@
     <Content Include="Views\CadastrarFunc\Create.cshtml" />
     <Content Include="Views\CadastroGerente\Create.cshtml" />
     <Content Include="Views\Entradas\Create.cshtml" />
-    <Content Include="Views\Estacionamentoes\Create.cshtml" />
-    <Content Include="Views\Estacionamentoes\Delete.cshtml" />
-    <Content Include="Views\Estacionamentoes\Details.cshtml" />
-    <Content Include="Views\Estacionamentoes\Edit.cshtml" />
-    <Content Include="Views\Estacionamentoes\Index.cshtml" />
     <Content Include="Views\Shared\_TelaADM.cshtml" />
     <Content Include="Views\Shared\_TelaGerente.cshtml" />
+    <Content Include="Views\Gerentes\Create.cshtml" />
+    <Content Include="Views\Gerentes\Delete.cshtml" />
+    <Content Include="Views\Gerentes\Details.cshtml" />
+    <Content Include="Views\Gerentes\Edit.cshtml" />
+    <Content Include="Views\Gerentes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

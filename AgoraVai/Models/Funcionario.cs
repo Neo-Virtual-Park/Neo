@@ -26,5 +26,8 @@ namespace AgoraVai.Models
 		public int PessoaId { get; set; }
 		public virtual Pessoa Pessoa { get; set; }
 
-	}
+        public int EstacionamentoId { get; set; }
+        public virtual Estacionamento Estacionamento { get; set; }
+
+    }
 }

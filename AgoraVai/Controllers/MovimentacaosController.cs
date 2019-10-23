@@ -18,6 +18,12 @@ namespace AgoraVai.Controllers
         public ActionResult Index()
         {
             //ViewBag.ArrecadacaoDia = db.Movimentacao.Where(x => x.Hora_saida == DateTime.Now).Sum(x => x.Valor_pagar == 0f ? 0 : x.Valor_pagar);
+<<<<<<< Updated upstream
+=======
+
+
+            ViewBag.Ex = db.Movimentacao.Where(x => x.Hora_saida != null).Sum(x => x.Valor_pagar == null ? 0 : x.Valor_pagar);
+>>>>>>> Stashed changes
             var movimentacao = db.Movimentacao.Include(m => m.Funcionario).Include(m => m.Vaga);
             return View(movimentacao.ToList());
         }

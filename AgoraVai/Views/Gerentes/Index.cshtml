@@ -1,0 +1,25 @@
+﻿@model IEnumerable<AgoraVai.Models.Gerente>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_TelaGerente.cshtml";
+}
+
+    <h2 style="text-align:center; padding: 30px;">Faturamento</h2>
+<div class="fatu--linha">
+    <div class="fatu fatu-red">
+        <h4>Faturamento do dia</h4>
+        <h3 style="padding-top: 10px;">@ViewBag.FaturamentoDoDia</h3>
+    </div>
+
+    <div class="fatu fatu-yellow">
+        <h4>Faturamento semanal</h4>
+        <h3 style="padding-top: 10px;">@ViewBag.FaturamentoDoDia</h3>
+    </div>
+
+    <div class="fatu fatu-green">
+        <h4>Faturamento mensal</h4>
+        <h3 style="padding-top: 10px;">@ViewBag.FaturamentoDoDia</h3>
+    </div>
+</div>
+

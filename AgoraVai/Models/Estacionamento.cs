@@ -21,7 +21,6 @@ namespace AgoraVai.Models
         public int GerenteId { get; set; }
         public virtual Gerente Gerente { get; set; }
 
-        public int FuncionarioId { get; set; }
-        public virtual Funcionario Funcionario { get; set; }
+ 
     }
 }

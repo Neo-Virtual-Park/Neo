@@ -35,6 +35,7 @@ namespace AgoraVai.Controllers
             mov.FuncionarioId = sl ;
             mov.Vaga = usu.Vaga;
             mov.VagaId = usu.VagaId;
+            mov.Valor_pagar = 0;
             db.Movimentacao.Add(mov);
             db.SaveChanges();
             return RedirectToAction("Index", "movimentacaos");

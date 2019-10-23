@@ -439,3 +439,33 @@ table tr {
     color: #131312;
 }
 /*# sourceMappingURL=style.css.map */
+
+.fatu {
+    text-align: center;
+    padding: 15px;
+    width: 400px;
+    height: 120px;
+    color: white;
+    border-radius: 10px;
+    margin: 0 20px;
+    font-size: 20px;
+}
+
+.fatu--linha {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.fatu-red {
+    background-color: #ff0000;
+}
+
+.fatu-yellow {
+    background-color: #ffe411;
+}
+
+.fatu-green {
+    background-color: #00ff00;
+}
