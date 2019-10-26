@@ -21,5 +21,8 @@ namespace AgoraVai.Models
 
         public float valorHorasEspeciais { get; set; }
 
+        public int EstacionamentoId { get; set; }
+        public virtual Estacionamento Estacionamento { get; set; }
+
     }
 }

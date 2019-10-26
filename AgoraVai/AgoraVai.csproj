@@ -162,14 +162,17 @@
     <Compile Include="Controllers\CadastrarFuncController.cs" />
     <Compile Include="Controllers\CadastroGerenteController.cs" />
     <Compile Include="Controllers\EntradasController.cs" />
+    <Compile Include="Controllers\FuncionariosController.cs" />
     <Compile Include="Controllers\GerentesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MovimentacaosController.cs" />
     <Compile Include="Controllers\PessoasController.cs" />
+    <Compile Include="Controllers\SangriasController.cs" />
     <Compile Include="Controllers\VagasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CadastroFuncionario.cs" />
     <Compile Include="Models\CadastroGerente.cs" />
     <Compile Include="Models\Contexto.cs" />
@@ -180,6 +183,8 @@
     <Compile Include="Models\Gerente.cs" />
     <Compile Include="Models\Movimentacao.cs" />
     <Compile Include="Models\Pessoa.cs" />
+    <Compile Include="Models\Sangria.cs" />
+    <Compile Include="Models\TipoPreco.cs" />
     <Compile Include="Models\Vaga.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -260,6 +265,11 @@
     <Content Include="Views\Gerentes\Details.cshtml" />
     <Content Include="Views\Gerentes\Edit.cshtml" />
     <Content Include="Views\Gerentes\Index.cshtml" />
+    <Content Include="Views\Sangrias\Create.cshtml" />
+    <Content Include="Views\Sangrias\Delete.cshtml" />
+    <Content Include="Views\Sangrias\Details.cshtml" />
+    <Content Include="Views\Sangrias\Edit.cshtml" />
+    <Content Include="Views\Sangrias\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -17,15 +17,20 @@ namespace AgoraVai.Controllers
         // GET: Movimentacaos
         public ActionResult Index()
         {
+            int sl = 0;
+            sl = Convert.ToInt32(Session["FunID"]);
             //ViewBag.ArrecadacaoDia = db.Movimentacao.Where(x => x.Hora_saida == DateTime.Now).Sum(x => x.Valor_pagar == 0f ? 0 : x.Valor_pagar);
-<<<<<<< Updated upstream
-=======
 
 
-            ViewBag.Ex = db.Movimentacao.Where(x => x.Hora_saida != null).Sum(x => x.Valor_pagar == null ? 0 : x.Valor_pagar);
->>>>>>> Stashed changes
-            var movimentacao = db.Movimentacao.Include(m => m.Funcionario).Include(m => m.Vaga);
-            return View(movimentacao.ToList());
+
+            // ViewBag.Ex = db.Movimentacao.Where(x => x.Hora_saida != null).Sum(x => x.Valor_pagar == null ? 0 : x.Valor_pagar);
+
+            // var movimentacao = db.Movimentacao.Include(m => m.Funcionario).Include(m => m.Vaga);
+
+            //db.Movimentacao.ToList()
+
+            Funcionario fun = db.Funcionario.Find(sl);
+            return View(db.Movimentacao.Where(x => x.Valor_pagar == 0 && x.Funcionario.EstacionamentoId == fun.EstacionamentoId).ToList());
         }
 
         // GET: Movimentacaos/Details/5

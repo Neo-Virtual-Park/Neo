@@ -19,19 +19,33 @@ namespace AgoraVai.Controllers
         {
             int sl = 0;
             sl = Convert.ToInt32(Session["FunID"]);
-            float? i = 0;
+            float? dia = 0;
+            float? sem = 0;
+            float? mes = 0;
+
             DateTime data;
+
             foreach (var naofacoideia in db.Movimentacao.Where(x => x.FuncionarioId == sl)){
                 data = Convert.ToDateTime(naofacoideia.Hora_saida);
-                
-                if (naofacoideia.Hora_saida != null && data.Day == DateTime.Now.Day)
+
+                if (naofacoideia.Hora_saida != null && data.Month == DateTime.Now.Month && data.Year == DateTime.Now.Year)
                 {
-                    i += naofacoideia.Valor_pagar;
+                    if (data.Day == DateTime.Now.Day)
+                       dia  += naofacoideia.Valor_pagar;
+
+                    if (data.Day <= DateTime.Now.Day+7 && data.Day >= DateTime.Now.Day-7)
+                    {
+                         sem += naofacoideia.Valor_pagar;
+                    }
+
+                    mes += naofacoideia.Valor_pagar;
                 }
-               
+
             }
 
-            ViewBag.FaturamentoDoDia = i;
+            ViewBag.FaturamentoDoDia = dia;
+            ViewBag.FaturamentoDaSemana = sem;
+            ViewBag.FaturamentoDoMes = mes;
 
             //ViewBag.Ex = db.Movimentacao.Where(x => x.Hora_saida != null).Sum(x => x.Valor_pagar == null ? 0 : x.Valor_pagar);
             return View();

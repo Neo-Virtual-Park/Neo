@@ -19,7 +19,10 @@ namespace AgoraVai.Controllers
 		[HttpPost]
 		public ActionResult Create(CadastroFuncionario usu)
 		{
-			Funcionario func = new Funcionario();
+            int sl = 0;
+            sl = Convert.ToInt32(Session["FunID"]);
+
+            Funcionario func = new Funcionario();
 			func.Pessoa = new Pessoa();
 			func.Pessoa.Nome = usu.Nome;
 			func.Pessoa.cpf = usu.cpf;
@@ -29,9 +32,11 @@ namespace AgoraVai.Controllers
 			func.PessoaId = db.Pessoa.Where(x => x.cpf == usu.cpf).ToList().LastOrDefault().Id;
 			func.Email = usu.Email;
 			func.Senha = usu.Senha;
-			db.Funcionario.Add(func);
+            func.EstacionamentoId = sl;
+            func.Estacionamento = db.Estacionamento.Where(x => x.Id == func.EstacionamentoId ).ToList().LastOrDefault();
+            db.Funcionario.Add(func);
 			db.SaveChanges();
-            return RedirectToAction("login","Home");
+            return RedirectToAction("Index","Gerentes");
         }
 	}
 }

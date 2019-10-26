@@ -50,9 +50,13 @@ namespace AgoraVai.Controllers
         {
             if (ModelState.IsValid)
             {
+                int sl = 0;
+                sl = Convert.ToInt32(Session["FunID"]);
+                vaga.EstacionamentoId = sl;
+                vaga.Estacionamento = db.Estacionamento.Where(x => x.Id == vaga.EstacionamentoId).ToList().LastOrDefault();
                 db.Vaga.Add(vaga);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Gerentes");
             }
 
             return View(vaga);

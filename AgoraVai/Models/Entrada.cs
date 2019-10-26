@@ -18,5 +18,9 @@ namespace AgoraVai.Models
         public virtual Funcionario Funcionario { get; set; }
         public int VagaId { get; set; }
         public virtual Vaga Vaga { get; set; }
+
+        public int TipoId { get; set; }
+        public virtual TipoPreco Tipo { get; set; }
     }
+
 }

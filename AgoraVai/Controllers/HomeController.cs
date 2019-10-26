@@ -43,7 +43,7 @@ namespace AgoraVai.Controllers
                     Session["usuarioLogadoID"] = g.Id.ToString();
                     Session["FunID"] = g.Id;
                     //   Session["nomeUsuarioLogado"] = v.Nome.ToString();
-                    return RedirectToAction("Index", "Funcionarios");
+                    return RedirectToAction("Index", "Gerentes");
                 }
             }
             return View(fun);

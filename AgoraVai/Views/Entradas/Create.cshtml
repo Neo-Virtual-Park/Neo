@@ -38,6 +38,13 @@
             </div>
 
             <div class="form--edges">
+                @Html.LabelFor(model => model.TipoId, "mensal, diaria ou semanal", htmlAttributes: new { @class = "login--paragraph" })
+                @Html.DropDownList("TipoId", null, htmlAttributes: new { @class = "login--inputs__add" })
+                @Html.ValidationMessageFor(model => model.TipoId, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form--edges">
                 <input type="submit" value="Cadastrar" class="btn btn--login btn__pattern" />
             </div>
         </div>

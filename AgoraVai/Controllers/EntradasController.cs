@@ -15,7 +15,9 @@ namespace AgoraVai.Controllers
         {
             ViewBag.HoraEnt = DateTime.Now;
             ViewBag.FuncionarioId = new SelectList(db.Funcionario, "Id", "Email");
-            ViewBag.VagaId = new SelectList(db.Vaga, "Id", "Tipo");
+            ViewBag.VagaId = new SelectList(db.Vaga.Where(x => x.Quantidade > 0), "Id", "Tipo");
+            ViewBag.TipoId = new SelectList(db.TipoPreco, "Id", "Tipo");
+            //ViewBag.Tipo = new SelectList(Tip, "Id", "Tipo");
             return View();
         }
 
@@ -36,6 +38,7 @@ namespace AgoraVai.Controllers
             mov.Vaga = usu.Vaga;
             mov.VagaId = usu.VagaId;
             mov.Valor_pagar = 0;
+            mov.Tipo = usu.TipoId;
             db.Movimentacao.Add(mov);
             db.SaveChanges();
             return RedirectToAction("Index", "movimentacaos");

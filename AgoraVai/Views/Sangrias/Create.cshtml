@@ -1,0 +1,42 @@
+﻿@model AgoraVai.Models.Sangria
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Movimentacao.cshtml";
+}
+
+<section class="section--login">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <h4 class="formulario__h4">Sangria</h4>
+        <div class="form form--login">
+
+            <div class="form--edges">
+                @Html.LabelFor(model => model.valor, htmlAttributes: new { @class = "login--paragraph" })
+                @Html.EditorFor(model => model.valor, new { htmlAttributes = new { @class = "login--inputs" } })
+                @Html.ValidationMessageFor(model => model.valor, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form--edges">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.LabelFor(model => model.descricao, "Descrição", htmlAttributes: new { @class = "login--paragraph" })
+                @Html.EditorFor(model => model.descricao, new { htmlAttributes = new { @class = "login--inputs" } })
+                @Html.ValidationMessageFor(model => model.descricao, "", new { @class = "text-danger" })
+            </div>
+            <div class="form--edges">
+                <input type="submit" value="Retirar" class="btn btn--login btn__pattern" />
+            </div>
+        </div>
+    }
+</section>
+
+@*<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

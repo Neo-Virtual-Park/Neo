@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<AgoraVai.Models.Movimentacao>
 @{
+    /**/
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Movimentacao.cshtml";
 
@@ -36,12 +37,10 @@
             <th>
                 Tempo
             </th>
-            <th>
-                Finalizar
-            </th>
+            <th>Finalizar</th>
             @*<th></th>*@
         </tr>
-        @ViewBag.ArrecadacaoDia
+
 
         @foreach (var item in Model)
         {
@@ -98,10 +97,6 @@
     document.querySelector('.tabela--search').addEventListener('keyup', searchFilter);
 
 
-
-
-
-
     //CRONOMETRO
     //cria cronometro
     var tempos = [], oldDias = [], oldMeses = [], oldHoras = [], oldMinutos = [], oldSegundos = [];
@@ -125,36 +120,78 @@
         Remainder = [];
     //pegar Hora atual
     setInterval(function () {
-        var data = new Date();
+        // var data = new Date();
         //Display cronometro
         for (var i = 0; i < document.querySelectorAll('.timer').length; i++) {
+
             //total de dias
-            var date_diff_indays = function (date1, date2) {
-                dt1 = new Date(date1);
-                dt2 = new Date(date2);
-                return Math.floor((Date.UTC(dt2.getFullYear(), dt2.getMonth(), dt2.getDate()) - Date.UTC(dt1
-                    .getFullYear(), dt1.getMonth(), dt1.getDate())) / (1000 * 60 * 60 * 24));
-            }
-            var dataAntiga = [], dataAtual;
-            dataAntiga[i] = `${oldMeses[i]}/${oldDias[i]}/2019`;
-            dataAtual = `${data.getMonth() + 1}/${data.getDate()}/2019`;
-            cronometroHoras[i] = date_diff_indays(dataAntiga[i], dataAtual) * 24; //total de horas
-            function SplitTime(numberOfHours) {
-                for (var i = 0; i < document.querySelectorAll('.timer').length; i++) {
-                    cronometroDias[i] = Math.floor(numberOfHours[i] / 24);
-                    Remainder[i] = numberOfHours[i] % 24;
-                    cronometroHoras[i] = Math.floor(Remainder[i]);
-                    cronometroMinutos[i] = Math.floor(60 * (Remainder[i] - cronometroHoras[i]));
-                    return cronometroMinutos[i];
-                }
-            }
-            //SplitTime(cronometroHoras[i]);
-            var timeResult = SplitTime(cronometroHoras[i]);
+            //var date_diff_indays = function (date1, date2) {
+            //    dt1 = new Date(date1);
+            //    dt2 = new Date(date2);
+            //    return Math.floor((Date.UTC(dt2.getFullYear(), dt2.getMonth(), dt2.getDate()) - Date.UTC(dt1
+            //        .getFullYear(), dt1.getMonth(), dt1.getDate())) / (1000 * 60 * 60 * 24));
+            //}
+
+
+            //var dataAntiga, dataAtual;
+            //dataAntiga = new Date(2019, oldMeses[i], oldDias[i], oldHoras[i], oldMinutos[i]);
+            //dataAtual = new Date(data.getFullYear(), data.getMonth(), data.getDate(), data.getHours(), data.getMinutes());
+            //cronometroHoras[i] = date_diff_indays(dataAntiga, dataAtual) * 24; //total de horas
+
+
+
+            //function SplitTime() {
+            //   //    var Days = Math.floor(numberOfHours / 24);
+            //   //var Remainder = numberOfHours % 24;
+            //   ////var Hours = Math.floor(Remainder);
+            //   //var Minutes = Math.floor(60 * (Remainder - Hours));
+
+            //    var dif = dataAntiga - dataAtual;
+
+            //    var sl = new Date(dataAntiga);
+
+
+            //    var Minutes = dif / (60 * 1000) % 60;
+            //    var Hours = dif / (60 * 60 * 1000);
+            //     console.log(dif);
+            //   return ({
+            //      Minutes,
+            //      Hours
+            //    })
+            //}
+            ////SplitTime(cronometroHoras[i]);
+            //var timeResult = SplitTime();
+
+            //var rds = Number(cronometroHoras[i]);
+
             //console.log(timeResult.cronometroDias[i] + " Days " + timeResult.cronometroHoras[i] + " Hours and " + timeResult.cronometroMinutos[i] + " Minutes.");
             //exibe cronometro
-            document.getElementsByClassName("timer")[i].innerHTML = `${cronometroHoras[i]}:${SplitTime(cronometroHoras[i])}`;
-        }
+            var print = new Date();
+
+           // var tempo =  Number((oldHoras[i] * 60 + oldMinutos[i]));
+
+            var tempo = Number(((print.getHours()*60) + print.getMinutes()));
+            tempo = tempo - (Number((oldHoras[i] * 60)) + Number(oldMinutos[i]));
+
+            if (tempo < 0) {
+                tempo * -1;
+            }
+        
+            console.log(Number((print.getHours() + print.getMinutes())));
+            cronometroHoras[i] = 0;
+            cronometroMinutos[i] = tempo;
+            for (var j = tempo; j >= 60; j -= 60) {
+                cronometroHoras[i] += 1;
+                cronometroMinutos[i] = j-60;
+            }
+
+            document.getElementsByClassName("timer")[i].innerHTML = `${cronometroHoras[i]}horas ${cronometroMinutos[i]}minutos`;
+    }
+
+
     }, 1000);
     //CRONOMETRO
+
+
 
 </script>

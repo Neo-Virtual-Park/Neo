@@ -225,11 +225,10 @@ footer {
     background-color: #131312;
     color: white;
     font-size: 25px;
-    width: 700px;
 }
 
 .tabela__up {
-    padding: 0px;
+    
 }
 .section--login {
     display: -webkit-box;
@@ -288,7 +287,6 @@ footer {
         width: 700px;
         height: auto;
         padding: 50px 100px;
-        border: 1px solid #f3f3f3;
     }
 
     .section--login .form--login {
@@ -335,11 +333,10 @@ footer {
     flex-flow: row nowrap;
     padding: 10px 40px;
 }
-.navegation img {
-    width: 60px;
-    height: 60px;
-
-}
+    .navegation img {
+        width: 60px;
+        height: 60px;
+    }
 
     .navegation ul {
         display: -webkit-box;
@@ -351,7 +348,7 @@ footer {
     }
 
         .navegation ul li {
-            margin: 0 15px;
+            margin: 0 20px;
             color: white;
         }
 
@@ -362,9 +359,8 @@ footer {
 */
 
 .tabela {
-    width: 1000px;
+    width: 92%;
     height: auto;
-    border-radius: 10px;
 }
 
 
@@ -373,11 +369,9 @@ footer {
     color: white;
     font-weight: 700;
     font-size: 18px;
-    margin-bottom: 10px;
 }
 
 .tabela--infos {
-    overflow-y: hidden;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -391,31 +385,32 @@ footer {
     -webkit-box-direction: normal;
     -ms-flex-flow: row nowrap;
     flex-flow: row nowrap;
-    padding: 20px 25px;
-    margin: 5px 0;
-    border: 1px solid #131312;
-    border-radius: 20px;
-}
-
-    .tabela--infos:nth-child(even) {
-        background-color: #ccc;
-    }
-
-
-table tr {
     text-align: center;
+    padding: 20px 25px;
+    margin: 10px 0;
+    border: 1px solid #131312;
+    border-radius: 100px;
 }
+
+/*.tabela--infos:nth-child(even) {
+        background-color: #ccc;
+    }*/
+
+
+/*table tr td, th {
+    text-align: center;
+}*/
 
 .tabela--search {
     all: unset;
-    width: 92%;
+    width: 90%;
     padding-left: 4px;
 }
 
 .tabela--search__div {
-    width: 1000px;
+    width: 92%;
     border: 1px solid #131312;
-    border-radius: 20px;
+    border-radius: 100px;
     padding: 12px;
 }
 
@@ -476,11 +471,3 @@ table tr {
 .fatu-green {
     background-color: #00ff00;
 }
-
-
-
-/*
-    SANGRIA
-    SANGRIA
-    SANGRIA
-*/

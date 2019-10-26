@@ -13,6 +13,7 @@ namespace AgoraVai.Models
         public string Cpf { get; set; }
         public int Telefone { get; set; }
         public string Placa { get; set; }
+        public int Tipo { get; set; }
         public DateTime hora_entrada { get; set; }
         public int FuncionarioId { get; set; }
         public virtual Funcionario Funcionario { get; set; }
@@ -21,4 +22,14 @@ namespace AgoraVai.Models
         public int VagaId { get; set; }
         public virtual Vaga Vaga { get; set; }
     }
+
+
+    //public enum Tipo
+    //{
+    //    Diaria,
+    //    Mensal,
+    //    Semanal
+    //}
+
+
 }
