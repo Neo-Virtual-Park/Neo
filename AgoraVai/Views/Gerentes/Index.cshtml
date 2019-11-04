@@ -5,8 +5,12 @@
     Layout = "~/Views/Shared/_TelaGerente.cshtml";
 }
 
-    <h2 style="text-align:center; padding: 30px;">Faturamento</h2>
-<div class="fatu--linha">
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+<h2 style="text-align:center; padding: 15px; font-size: 30px">Faturamento</h2>
+<div class="fatu--linha fatu__size">
     <div class="fatu fatu-red">
         <h4>Do Dia</h4>
         <h3 style="padding-top: 10px;">@ViewBag.FaturamentoDoDia</h3>
@@ -23,3 +27,90 @@
     </div>
 </div>
 
+<form method="post" action="~/Gerentes/Index/" style="display: flex; flex-flow: row nowrap; justify-content: center;">
+    <input type="text" maxlength="4" min="4" name="data1" placeholder="Ano desejado" />
+    <input style="padding: 10px" type="submit" value="Confirmar" class="btn btn--login btn__pattern" name="confirmar" />
+</form>
+
+
+
+<div id="container" class="fatu__size" style="height: 550px;"></div>
+
+<h1 id="jan" style="display: none">@ViewBag.jan</h1>
+<h1 id="fev" style="display: none">@ViewBag.fev</h1>
+<h1 id="mar" style="display: none">@ViewBag.mar</h1>
+<h1 id="abr" style="display: none">@ViewBag.abr</h1>
+<h1 id="mai" style="display: none">@ViewBag.mai</h1>
+<h1 id="jun" style="display: none">@ViewBag.jun</h1>
+<h1 id="jul" style="display: none">@ViewBag.jul</h1>
+<h1 id="ago" style="display: none">@ViewBag.ago</h1>
+<h1 id="set" style="display: none">@ViewBag.set</h1>
+<h1 id="outu" style="display: none">@ViewBag.outu</h1>
+<h1 id="nov" style="display: none">@ViewBag.nov</h1>
+<h1 id="dez" style="display: none">@ViewBag.dez</h1>
+
+<script>
+    Highcharts.chart('container', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Faturamento por mês'
+        },
+        //subtitle: {
+        //    text: 'Source: <a href="http://en.wikipedia.org/wiki/List_of_cities_proper_by_population">Wikipedia</a>'
+        //},
+        xAxis: {
+            type: 'category',
+            labels: {
+                rotation: 0,
+                style: {
+                    fontSize: '14px',
+                    fontFamily: 'Verdana, sans-serif',
+                }
+            }
+        },
+        yAxis: {
+            min: 50,
+            title: {
+                text: 'Faturamento'
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        tooltip: {
+            pointFormat: 'Faturamento de R$<b>{point.y:.2f}</b>'
+        },
+        series: [{
+            name: 'Faturamento',
+            data: [
+                ['Jan', Number(document.getElementById('jan').innerHTML)],
+                ['Fev', 1380.8],
+                ['Mar', 1960.9],
+                ['Abr', 1390.7],
+                ['Mai', 2120.1],
+                ['Jun', 1940.7],
+                ['Jul', 2070.4],
+                ['Ago', 2609.2],
+                ['Set', 3160.0],
+                ['Out', 2960.7],
+                ['Nov', 3580.5],
+                ['Dez', 3018.2],
+            ],
+            dataLabels: {
+                enabled: true,
+                rotation: -0,
+                color: '#ffffff',
+                align: 'center',
+                format: 'R${point.y:.2f}', // one decimal
+                y: -5, // 10 pixels down from the top
+                style: {
+                    fontSize: '14px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        }]
+    });
+
+</script>

@@ -442,32 +442,41 @@ footer {
 }
 /*# sourceMappingURL=style.css.map */
 
+
 .fatu {
     text-align: center;
     padding: 15px;
-    width: 400px;
+    width: 340px;
     height: 120px;
     color: white;
-    border-radius: 10px;
-    margin: 0 20px;
+    border-radius: 8px;
+    margin: 15px;
     font-size: 20px;
 }
 
 .fatu--linha {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     align-items: center;
     justify-content: center;
+}
+.fatu__size {
+    width: 85%;
+    margin: 0 auto;
+    padding: 15px;
 }
 
 .fatu-red {
     background-color: #ff0000;
+    box-shadow: 0 5px 10px #640000;
 }
 
 .fatu-yellow {
     background-color: #ffe411;
+    box-shadow: 0 5px 10px #675c06;
 }
 
 .fatu-green {
     background-color: #00ff00;
+    box-shadow: 0 5px 10px #006000;
 }

@@ -14,6 +14,8 @@ namespace AgoraVai.Controllers
     {
         private Contexto db = new Contexto();
 
+
+
         // GET: Gerentes
         public ActionResult Index()
         {
@@ -22,6 +24,8 @@ namespace AgoraVai.Controllers
             float? dia = 0;
             float? sem = 0;
             float? mes = 0;
+            float? html = 1260;
+            ViewBag.qualquercoisa = html;
 
             DateTime data;
 
@@ -48,6 +52,13 @@ namespace AgoraVai.Controllers
             ViewBag.FaturamentoDoMes = mes;
 
             //ViewBag.Ex = db.Movimentacao.Where(x => x.Hora_saida != null).Sum(x => x.Valor_pagar == null ? 0 : x.Valor_pagar);
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Index(string data)
+        {
+            ViewBag.jan = 232;
             return View();
         }
 
