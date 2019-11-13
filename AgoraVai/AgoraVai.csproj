@@ -270,6 +270,7 @@
     <Content Include="Views\Sangrias\Details.cshtml" />
     <Content Include="Views\Sangrias\Edit.cshtml" />
     <Content Include="Views\Sangrias\Index.cshtml" />
+    <Content Include="Views\Home\erro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

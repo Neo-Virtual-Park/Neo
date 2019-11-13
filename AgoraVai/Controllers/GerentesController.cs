@@ -29,17 +29,18 @@ namespace AgoraVai.Controllers
 
             DateTime data;
 
-            foreach (var naofacoideia in db.Movimentacao.Where(x => x.FuncionarioId == sl)){
+            foreach (var naofacoideia in db.Movimentacao.Where(x => x.FuncionarioId == sl))
+            {
                 data = Convert.ToDateTime(naofacoideia.Hora_saida);
 
                 if (naofacoideia.Hora_saida != null && data.Month == DateTime.Now.Month && data.Year == DateTime.Now.Year)
                 {
                     if (data.Day == DateTime.Now.Day)
-                       dia  += naofacoideia.Valor_pagar;
+                        dia += naofacoideia.Valor_pagar;
 
-                    if (data.Day <= DateTime.Now.Day+7 && data.Day >= DateTime.Now.Day-7)
+                    if (data.Day <= DateTime.Now.Day + 7 && data.Day >= DateTime.Now.Day - 7)
                     {
-                         sem += naofacoideia.Valor_pagar;
+                        sem += naofacoideia.Valor_pagar;
                     }
 
                     mes += naofacoideia.Valor_pagar;
@@ -55,10 +56,43 @@ namespace AgoraVai.Controllers
             return View();
         }
 
+
         [HttpPost]
         public ActionResult Index(string data)
         {
-            ViewBag.jan = 232;
+
+
+            float[] mes = new float[12];
+            int sl = 0;
+            sl = Convert.ToInt32(Session["FunID"]);
+            DateTime data2;
+            foreach (var naofacoideia in db.Movimentacao.Where(x => x.FuncionarioId == sl))
+            {
+                data2 = Convert.ToDateTime(naofacoideia.Hora_saida);
+                for (int i = 0; i <= 11; i++)
+                {
+                    if (naofacoideia.Hora_saida != null && data2.Month == i)
+                    {
+                        mes[i] += naofacoideia.Valor_pagar;
+                    }
+                }
+
+            }
+            float num = 11.11f;
+            string teste = num.ToString();
+            ViewBag.jan = 11;
+            ViewBag.fev = mes[1];
+            ViewBag.mar = mes[2];
+            ViewBag.abr = mes[3];
+            ViewBag.mai = mes[4];
+            ViewBag.jun = mes[5];
+            ViewBag.jul = mes[6];
+            ViewBag.ago = mes[7];
+            ViewBag.set = mes[8];
+            ViewBag.outu = mes[9];
+            ViewBag.nov = teste;
+            ViewBag.dez = mes[11];
+
             return View();
         }
 

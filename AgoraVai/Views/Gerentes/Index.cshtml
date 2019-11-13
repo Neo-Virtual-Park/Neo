@@ -49,7 +49,11 @@
 <h1 id="nov" style="display: none">@ViewBag.nov</h1>
 <h1 id="dez" style="display: none">@ViewBag.dez</h1>
 
+
+
 <script>
+    console.log(@ViewBag.nov);
+
     Highcharts.chart('container', {
         chart: {
             type: 'column'
@@ -71,9 +75,9 @@
             }
         },
         yAxis: {
-            min: 50,
+            min: 0,
             title: {
-                text: 'Faturamento'
+                text: 'Faturamento',
             }
         },
         legend: {
@@ -86,24 +90,24 @@
             name: 'Faturamento',
             data: [
                 ['Jan', Number(document.getElementById('jan').innerHTML)],
-                ['Fev', 1380.8],
-                ['Mar', 1960.9],
-                ['Abr', 1390.7],
-                ['Mai', 2120.1],
-                ['Jun', 1940.7],
-                ['Jul', 2070.4],
-                ['Ago', 2609.2],
-                ['Set', 3160.0],
-                ['Out', 2960.7],
-                ['Nov', 3580.5],
-                ['Dez', 3018.2],
+                ['Fev', Number(document.getElementById('fev').innerHTML)],
+                ['Mar', Number(document.getElementById('mar').innerHTML)],
+                ['Abr', Number(document.getElementById('abr').innerHTML)],
+                ['Mai', Number(document.getElementById('mai').innerHTML)],
+                ['Jun', Number(document.getElementById('jun').innerHTML)],
+                ['Jul', Number(document.getElementById('jul').innerHTML)],
+                ['Ago', Number(document.getElementById('ago').innerHTML)],
+                ['Set', Number(document.getElementById('set').innerHTML)],
+                ['Out', Number(document.getElementById('outu').innerHTML)],
+                ['Nov', Number(document.getElementById('nov').innerHTML)],
+                ['Dez', Number(document.getElementById('dez').innerHTML)],
             ],
             dataLabels: {
                 enabled: true,
                 rotation: -0,
                 color: '#ffffff',
                 align: 'center',
-                format: 'R${point.y:.2f}', // one decimal
+                format: 'R${point.y}', // one decimal
                 y: -5, // 10 pixels down from the top
                 style: {
                     fontSize: '14px',
