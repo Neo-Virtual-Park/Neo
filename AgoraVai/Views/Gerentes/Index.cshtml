@@ -29,7 +29,7 @@
 
 <form method="post" action="~/Gerentes/Index/" style="display: flex; flex-flow: row nowrap; justify-content: center;">
     <input type="text" maxlength="4" min="4" name="data1" placeholder="Ano desejado" />
-    <input style="padding: 10px" type="submit" value="Confirmar" class="btn btn--login btn__pattern" name="confirmar" />
+    <input onclick="loading();" style="padding: 10px" type="submit" value="Confirmar" class="btn btn--login btn__pattern" name="confirmar" />
 </form>
 
 
@@ -52,6 +52,12 @@
 
 
 <script>
+
+    function loading(e) {
+        e.preventDefault();
+
+    }
+
     console.log(@ViewBag.nov);
 
     Highcharts.chart('container', {

@@ -80,17 +80,17 @@ namespace AgoraVai.Controllers
             }
             float num = 11.11f;
             string teste = num.ToString();
-            ViewBag.jan = 11;
-            ViewBag.fev = mes[1];
-            ViewBag.mar = mes[2];
-            ViewBag.abr = mes[3];
-            ViewBag.mai = mes[4];
-            ViewBag.jun = mes[5];
-            ViewBag.jul = mes[6];
-            ViewBag.ago = mes[7];
-            ViewBag.set = mes[8];
-            ViewBag.outu = mes[9];
-            ViewBag.nov = teste;
+            ViewBag.jan = mes[0].ToString().Replace(",", ".");
+            ViewBag.fev = mes[1].ToString().Replace(",", ".");
+            ViewBag.mar = mes[2].ToString().Replace(",", ".");
+            ViewBag.abr = mes[3].ToString().Replace(",", ".");
+            ViewBag.mai = mes[4].ToString().Replace(",", ".");
+            ViewBag.jun = mes[5].ToString().Replace(",", ".");
+            ViewBag.jul = mes[6].ToString().Replace(",", ".");
+            ViewBag.ago = mes[7].ToString().Replace(",", ".");
+            ViewBag.set = mes[8].ToString().Replace(",", ".");
+            ViewBag.outu = mes[9].ToString().Replace(",", ".");
+            ViewBag.nov = teste.Replace(",", ".");
             ViewBag.dez = mes[11];
 
             return View();
