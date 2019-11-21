@@ -16,6 +16,12 @@ namespace AgoraVai.Controllers
             return View();
         }
 
+        public ActionResult Sair()
+        {
+            Session["FunID"] = null;
+            return RedirectToAction("Index", "Home");
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(Funcionario fun)

@@ -26,6 +26,8 @@
                 @Html.EditorFor(model => model.descricao, new { htmlAttributes = new { @class = "login--inputs" } })
                 @Html.ValidationMessageFor(model => model.descricao, "", new { @class = "text-danger" })
             </div>
+
+            @ViewBag.Data
             <div class="form--edges">
                 <input type="submit" value="Retirar" class="btn btn--login btn__pattern" />
             </div>

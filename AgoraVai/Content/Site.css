@@ -7,6 +7,7 @@
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
+    outline: 0;
 }
 
 .btn--padding {
@@ -32,7 +33,13 @@
 
 }
 /*CUIDADO COM ESSA MERDA*/
-
+.central {
+    text-align: center;
+    padding: 5px;
+    display:flex; 
+    justify-content: center;
+    flex-flow: row nowrap;
+}
 .login--inputs {
     all: unset;
     height: 40px;
@@ -314,6 +321,11 @@ footer {
                 padding: 10px 30px;
             }
 
+.padding {
+    padding-right: 10px;
+
+}
+
 
 
 .navegation {
@@ -445,13 +457,13 @@ footer {
 
 .fatu {
     text-align: center;
-    padding: 15px;
-    width: 340px;
-    height: 120px;
+    padding: 14px;
+    width: 360px;
+    height: 95px;
     color: white;
-    border-radius: 8px;
+    border-radius: 5px;
     margin: 15px;
-    font-size: 20px;
+    font-size: 21px;
 }
 
 .fatu--linha {
@@ -461,22 +473,22 @@ footer {
     justify-content: center;
 }
 .fatu__size {
-    width: 85%;
+    width: 88%;
     margin: 0 auto;
     padding: 15px;
 }
 
 .fatu-red {
-    background-color: #ff0000;
-    box-shadow: 0 5px 10px #640000;
+    background-color: #ff4c4c;
+    box-shadow: 0 4px 6px #3c0000;
 }
 
 .fatu-yellow {
-    background-color: #ffe411;
-    box-shadow: 0 5px 10px #675c06;
+    background-color: #ffe830;
+    box-shadow: 0 4px 6px #4e4500;
 }
 
 .fatu-green {
-    background-color: #00ff00;
-    box-shadow: 0 5px 10px #006000;
+    background-color: #47ff47;
+    box-shadow: 0 4px 6px #004400;
 }

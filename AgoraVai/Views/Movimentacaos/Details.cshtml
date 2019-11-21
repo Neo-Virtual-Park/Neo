@@ -5,77 +5,76 @@
     Layout = "~/Views/Shared/_Movimentacao.cshtml";
 }
 
-<section class="section__formulario">
+<section class="section--login">
 
-	@*<h4 class="formulario__h4">Movimentacao</h4>*@
-		<dl class="formulario">
-			<dt>
-				@Html.DisplayNameFor(model => model.Funcionario.Pessoa.Nome)
-			</dt>
+    @*<h4 class="formulario__h4">Movimentacao</h4>*@
+    <dl class="formulario">
+        <dt>
+            @Html.DisplayNameFor(model => model.Funcionario.Pessoa.Nome)
+        </dt>
 
-			<dd>
-				@Html.DisplayFor(model => model.Funcionario.Pessoa.Nome)
-			</dd>
+        <dd>
+            @Html.DisplayFor(model => model.Funcionario.Pessoa.Nome)
+        </dd>
 
-			<dt>
-				@Html.DisplayNameFor(model => model.Vaga.Tipo)
-			</dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Vaga.Tipo)
+        </dt>
 
-			<dd>
-				@Html.DisplayFor(model => model.Vaga.Tipo)
-			</dd>
+        <dd>
+            @Html.DisplayFor(model => model.Vaga.Tipo)
+        </dd>
 
-			<dt>
-				@Html.DisplayNameFor(model => model.Cpf)
-			</dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cpf)
+        </dt>
 
-			<dd>
-				@Html.DisplayFor(model => model.Cpf)
-			</dd>
+        <dd>
+            @Html.DisplayFor(model => model.Cpf)
+        </dd>
 
-			<dt>
-				@Html.DisplayNameFor(model => model.Telefone)
-			</dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
 
-			<dd>
-				@Html.DisplayFor(model => model.Telefone)
-			</dd>
+        <dd>
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
 
-			<dt>
-				@Html.DisplayNameFor(model => model.Placa)
-			</dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Placa)
+        </dt>
 
-			<dd>
-				@Html.DisplayFor(model => model.Placa)
-			</dd>
+        <dd>
+            @Html.DisplayFor(model => model.Placa)
+        </dd>
 
-			<dt>
-				@Html.DisplayNameFor(model => model.hora_entrada)
-			</dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.hora_entrada)
+        </dt>
 
-			<dd>
-				@Html.DisplayFor(model => model.hora_entrada)
-			</dd>
+        <dd>
+            @Html.DisplayFor(model => model.hora_entrada)
+        </dd>
 
-			<dt>
-				@Html.DisplayNameFor(model => model.Hora_saida)
-			</dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Hora_saida)
+        </dt>
 
-			<dd>
-				@Html.DisplayFor(model => model.Hora_saida)
-			</dd>
+        <dd>
+            @Html.DisplayFor(model => model.Hora_saida)
+        </dd>
 
-			<dt>
-				@Html.DisplayNameFor(model => model.Valor_pagar)
-			</dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Valor_pagar)
+        </dt>
 
-			<dd>
-				@Html.DisplayFor(model => model.Valor_pagar)
-			</dd>
+        <dd>
+            @Html.DisplayFor(model => model.Valor_pagar)
+        </dd>
 
-		</dl>
+    </dl>
 </section>
-<p>
-	@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-	@Html.ActionLink("Back to List", "Index")
-</p>
+@*<div class="form--edges">
+        @Html.ActionLink("Voltar", "Index", new { @class = "btn btn--login btn__pattern" })
+</div>*@

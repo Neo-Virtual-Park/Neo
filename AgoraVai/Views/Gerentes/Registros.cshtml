@@ -1,0 +1,64 @@
+﻿@model IEnumerable<AgoraVai.Models.Movimentacao>
+
+@{
+    ViewBag.Title = "Registros";
+    Layout = "~/Views/Shared/_TelaGerente.cshtml";
+}
+
+<h2 style="text-align:center; padding: 20px; font-size: 30px">Registros</h2>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+
+<form method="post" action="~/Gerentes/Registros/" style="display: flex; flex-flow: row nowrap; justify-content: center;">
+    <input type="text" name="data3" placeholder="Data inicial" style="border-radius: 100px; border: 1px solid #000; margin-right: 5px; padding-right: 20px" />
+    <input type="text" name="data4" placeholder="Data final" style="border-radius: 100px; border: 1px solid #000; margin-right: 5px; padding-right: 20px" />
+    <input style="padding: 10px" type="submit" value="Registros" class="btn btn--login btn__pattern" name="confirmar" />
+</form>
+
+<section class="section--login">
+    <h1>Valor total: R$: @ViewBag.soma </h1>
+    <table class="tabela tabela__up">
+        <tr class="tabela--infos tabela__bold">
+            <th>
+                @Html.DisplayNameFor(model => model.Funcionario.Pessoa.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vaga.Tipo)
+            </th>
+            <th>
+                Hora de entrada
+            </th>
+            <th>
+                Hora de saída
+            </th>
+            <th>
+                Valor a pagar
+            </th>
+            @*<th></th>*@
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr class="tabela--infos">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Funcionario.Pessoa.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Vaga.Tipo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hora_entrada)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hora_saida)
+                </td>
+                <td>
+                    R$: @Html.DisplayFor(modelItem => item.Valor_pagar)
+                </td>
+            </tr>
+        }
+
+    </table>
+</section>

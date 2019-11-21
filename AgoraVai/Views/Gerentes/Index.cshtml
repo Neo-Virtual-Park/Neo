@@ -9,57 +9,49 @@
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 
-<h2 style="text-align:center; padding: 15px; font-size: 30px">Faturamento</h2>
+
+<h2 style="text-align:center; padding: 20px; font-size: 30px">Bem-vindo(a), @ViewBag.nomedousuario</h2>
+<h2 style="text-align:center; padding: 20px; font-size: 30px">Faturamentos</h2>
 <div class="fatu--linha fatu__size">
     <div class="fatu fatu-red">
-        <h4>Do Dia</h4>
-        <h3 style="padding-top: 10px;">@ViewBag.FaturamentoDoDia</h3>
+        <h4>do dia</h4>
+        <h3 style="padding-top: 10px;">R$: @ViewBag.FaturamentoDoDia</h3>
     </div>
 
     <div class="fatu fatu-yellow">
-        <h4>Da Semana</h4>
-        <h3 style="padding-top: 10px;">@ViewBag.FaturamentoDaSemana</h3>
+        <h4>da semana</h4>
+        <h3 style="padding-top: 10px;">R$: @ViewBag.FaturamentoDaSemana</h3>
     </div>
 
     <div class="fatu fatu-green">
-        <h4>Do Mês</h4>
-        <h3 style="padding-top: 10px;">@ViewBag.FaturamentoDoMes</h3>
+        <h4>do mês</h4>
+        <h3 style="padding-top: 10px;">R$: @ViewBag.FaturamentoDoMes</h3>
     </div>
 </div>
 
 <form method="post" action="~/Gerentes/Index/" style="display: flex; flex-flow: row nowrap; justify-content: center;">
-    <input type="text" maxlength="4" min="4" name="data1" placeholder="Ano desejado" />
-    <input onclick="loading();" style="padding: 10px" type="submit" value="Confirmar" class="btn btn--login btn__pattern" name="confirmar" />
+    <input type="text" maxlength="4" min="4" name="data" placeholder="Ano desejado" style="border-radius: 100px; border: 1px solid #000; margin-right: 5px; padding-right: 20px" />
+    <input style="padding: 10px" type="submit" value="Confirmar" class="btn btn--login btn__pattern" name="confirmar" />
 </form>
 
+<div id="container" class="fatu__size" style="height: 600px;"></div>
 
-
-<div id="container" class="fatu__size" style="height: 550px;"></div>
-
-<h1 id="jan" style="display: none">@ViewBag.jan</h1>
-<h1 id="fev" style="display: none">@ViewBag.fev</h1>
-<h1 id="mar" style="display: none">@ViewBag.mar</h1>
-<h1 id="abr" style="display: none">@ViewBag.abr</h1>
-<h1 id="mai" style="display: none">@ViewBag.mai</h1>
-<h1 id="jun" style="display: none">@ViewBag.jun</h1>
-<h1 id="jul" style="display: none">@ViewBag.jul</h1>
-<h1 id="ago" style="display: none">@ViewBag.ago</h1>
-<h1 id="set" style="display: none">@ViewBag.set</h1>
-<h1 id="outu" style="display: none">@ViewBag.outu</h1>
-<h1 id="nov" style="display: none">@ViewBag.nov</h1>
-<h1 id="dez" style="display: none">@ViewBag.dez</h1>
+<p id="jan" style="display: none">@ViewBag.jan</p>
+<p id="fev" style="display: none">@ViewBag.fev</p>
+<p id="mar" style="display: none">@ViewBag.mar</p>
+<p id="abr" style="display: none">@ViewBag.abr</p>
+<p id="mai" style="display: none">@ViewBag.mai</p>
+<p id="jun" style="display: none">@ViewBag.jun</p>
+<p id="jul" style="display: none">@ViewBag.jul</p>
+<p id="ago" style="display: none">@ViewBag.ago</p>
+<p id="set" style="display: none">@ViewBag.set</p>
+<p id="outu" style="display: none">@ViewBag.outu</p>
+<p id="nov" style="display: none">@ViewBag.nov</p>
+<p id="dez" style="display: none">@ViewBag.dez</p>
 
 
 
 <script>
-
-    function loading(e) {
-        e.preventDefault();
-
-    }
-
-    console.log(@ViewBag.nov);
-
     Highcharts.chart('container', {
         chart: {
             type: 'column'
@@ -116,7 +108,7 @@
                 format: 'R${point.y}', // one decimal
                 y: -5, // 10 pixels down from the top
                 style: {
-                    fontSize: '14px',
+                    fontSize: '15px',
                     fontFamily: 'Verdana, sans-serif'
                 }
             }

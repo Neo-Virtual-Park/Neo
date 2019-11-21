@@ -14,11 +14,13 @@
 </head>
 <body>
     <nav class="navegation">
-        <img src="~/img/Logo.png" alt="">
+        <a href="@Url.Action("Index", "CadastroGerente")">
+            <img src="~/img/Logo.png" alt="">
+        </a>
         @*@Html.ActionLink("Neo Virtual Park", "Index", "Estacionamentoes", new { area = "" }, new { @class = "white" })*@
         <ul>
             <li>@Html.ActionLink("Cadastrar Estacionamento", "Create", "CadastroGerente", new { area = "" }, new { @class = "white" })</li>
-            <li>@Html.ActionLink("Sair", "Index", "Home", new { area = "" }, new { @class = "white" })</li>
+            <li>@Html.ActionLink("Sair", "Sair", "Home", new { area = "" }, new { @class = "white" })</li>
         </ul>
     </nav>
 

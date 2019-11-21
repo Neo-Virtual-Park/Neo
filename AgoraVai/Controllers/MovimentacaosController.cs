@@ -30,6 +30,7 @@ namespace AgoraVai.Controllers
             //db.Movimentacao.ToList()
 
             Funcionario fun = db.Funcionario.Find(sl);
+            ViewBag.nomedousuario = fun.Pessoa.Nome;
             return View(db.Movimentacao.Where(x => x.Valor_pagar == 0 && x.Funcionario.EstacionamentoId == fun.EstacionamentoId).ToList());
         }
 

@@ -218,7 +218,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -271,6 +273,8 @@
     <Content Include="Views\Sangrias\Edit.cshtml" />
     <Content Include="Views\Sangrias\Index.cshtml" />
     <Content Include="Views\Home\erro.cshtml" />
+    <Content Include="Views\Gerentes\Registros.cshtml" />
+    <Content Include="Views\Gerentes\SangriasLista.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
