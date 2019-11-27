@@ -201,6 +201,7 @@
     <Content Include="img\car.jpg" />
     <Content Include="img\good.jpg" />
     <Content Include="img\login.jpg" />
+    <Content Include="img\undraw_page_not_found_su7k.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">

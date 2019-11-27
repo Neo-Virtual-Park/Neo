@@ -492,3 +492,8 @@ footer {
     background-color: #47ff47;
     box-shadow: 0 4px 6px #004400;
 }
+.error {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

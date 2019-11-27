@@ -16,6 +16,11 @@ namespace AgoraVai.Controllers
             return View();
         }
 
+        public ActionResult erro()
+        {
+            return View();
+        }
+
         public ActionResult Sair()
         {
             Session["FunID"] = null;
