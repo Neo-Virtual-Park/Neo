@@ -13,6 +13,7 @@ namespace AgoraVai.Controllers
     public class SangriasController : Controller
     {
         private Contexto db = new Contexto();
+        public static double dinheironocaixa = 0;
 
         // GET: Sangrias
         public ActionResult Index()
@@ -24,7 +25,20 @@ namespace AgoraVai.Controllers
         // GET: Sangrias/Create
         public ActionResult Create()
         {
+            int sl = 0;
+            sl = Convert.ToInt32(Session["FunID"]);
+            Funcionario fun = db.Funcionario.Where(f => f.Id == sl).FirstOrDefault();
+            Estacionamento est = db.Estacionamento.Where(e => e.Id == fun.EstacionamentoId).FirstOrDefault();
             ViewBag.Data = DateTime.Now;
+
+            var lista = db.Movimentacao.Where(x => x.Valor_pagar > 0 && x.Funcionario.EstacionamentoId == est.Id).ToList();
+            ViewBag.ValorNoCaixa = est.Customizacoes.ValorInicialCaixa;
+
+            foreach(var item in lista)
+            {
+                ViewBag.ValorNoCaixa += item.Valor_pagar;
+            }
+            dinheironocaixa = Convert.ToDouble(ViewBag.ValorNoCaixa);
             return View();
         }
 
@@ -37,17 +51,34 @@ namespace AgoraVai.Controllers
         {
             int sl = 0;
             sl = Convert.ToInt32(Session["FunID"]);
-            Funcionario fun = db.Funcionario.Find(sl);
+            Funcionario fun = db.Funcionario.Where(f => f.Id == sl).FirstOrDefault();
+            Estacionamento est = db.Estacionamento.Where(e => e.Id == fun.EstacionamentoId).FirstOrDefault();
             sangria.confirmar = 0;
             sangria.FuncionarioId = fun.Id;
             sangria.horadasangria = DateTime.Now;
             if (ModelState.IsValid)
             {
-                db.sangria.Add(sangria);
-                db.SaveChanges();
-                return RedirectToAction("Index","Movimentacaos");
+                if (sangria.valor <= dinheironocaixa)
+                {
+                    db.sangria.Add(sangria);
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "Movimentacaos");
+                }
+                else
+                {
+                    TempData["MSG"] = "Valor muito alto";
+                }
+              
             }
             ViewBag.Data = DateTime.Now;
+            var lista = db.Movimentacao.Where(x => x.Valor_pagar > 0 && x.Funcionario.EstacionamentoId == est.Id).ToList();
+            ViewBag.ValorNoCaixa = est.Customizacoes.ValorInicialCaixa;
+
+            foreach (var item in lista)
+            {
+                ViewBag.ValorNoCaixa += item.Valor_pagar;
+            }
+            dinheironocaixa = Convert.ToDouble(ViewBag.ValorNoCaixa);
             return View(sangria);
         }
 

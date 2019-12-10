@@ -18,7 +18,7 @@ namespace AgoraVai.Models
         public int FuncionarioId { get; set; }
         public virtual Funcionario Funcionario { get; set; }
         public DateTime? Hora_saida { get; set; }
-        public float Valor_pagar { get; set; }
+        public decimal Valor_pagar { get; set; }
         public int VagaId { get; set; }
         public virtual Vaga Vaga { get; set; }
     }

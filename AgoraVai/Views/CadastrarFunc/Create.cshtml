@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_TelaGerente.cshtml";
 }
 
 <section class="section--login">
@@ -20,7 +21,7 @@
             </div>
 
             <div class="form--edges">
-                @Html.LabelFor(model => model.cpf, htmlAttributes: new { @class = "login--paragraph" })
+                @Html.LabelFor(model => model.cpf, "CPF", htmlAttributes: new { @class = "login--paragraph" })
                 @Html.EditorFor(model => model.cpf, new { htmlAttributes = new { @class = "login--inputs" } })
                 @Html.ValidationMessageFor(model => model.cpf, "", new { @class = "text-danger" })
             </div>
@@ -37,16 +38,20 @@
                 @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
             </div>
             <div class="form--edges">
+                @Html.LabelFor(model => model.ConfirmarSenha, "Confirmar senha", htmlAttributes: new { @class = "login--paragraph" })
+                @Html.EditorFor(model => model.ConfirmarSenha, new { htmlAttributes = new { @class = "login--inputs" } })
+                @Html.ValidationMessageFor(model => model.ConfirmarSenha, "", new { @class = "text-danger" })
+            </div>
+            <div class="form--edges">
                 <input type="submit" value="Criar" class="btn btn--login btn__pattern" />
-
             </div>
         </div>
     }
 </section>
 
 @*<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>*@
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

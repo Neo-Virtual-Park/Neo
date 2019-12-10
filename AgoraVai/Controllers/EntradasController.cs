@@ -10,6 +10,7 @@ namespace AgoraVai.Controllers
     public class EntradasController : Controller
     {
         private Contexto db = new Contexto();
+        public static int tipovaga = 0;
         // GET: Entradas
         public ActionResult Create()
         {
@@ -39,6 +40,7 @@ namespace AgoraVai.Controllers
             mov.VagaId = usu.VagaId;
             mov.Valor_pagar = 0;
             mov.Tipo = usu.TipoId;
+            tipovaga = mov.Tipo = usu.TipoId;
             db.Movimentacao.Add(mov);
             db.SaveChanges();
             return RedirectToAction("Index", "movimentacaos");

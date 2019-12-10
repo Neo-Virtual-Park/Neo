@@ -46,12 +46,14 @@ namespace AgoraVai.Controllers
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Tipo,valor,QuantidadeHorasEspeciais,valorHorasEspeciais,Quantidade")] Vaga vaga)
+        public ActionResult Create([Bind(Include = "Id,Tipo,valor,QuantidadeHorasEspeciais,valorHorasEspeciais,Quantidade")] Vaga vaga, string vv)
         {
+            vaga.valor = Convert.ToDecimal(vv.Replace(".",","));
+            //vaga.valor = Convert.ToDecimal(vv);
             if (ModelState.IsValid)
             {
                 int sl = 0;
-                sl = Convert.ToInt32(Session["FunID"]);
+                sl = Convert.ToInt32(Session["GenID"]);
                 vaga.EstacionamentoId = sl;
                 vaga.Estacionamento = db.Estacionamento.Where(x => x.Id == vaga.EstacionamentoId).ToList().LastOrDefault();
                 db.Vaga.Add(vaga);

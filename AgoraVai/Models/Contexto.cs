@@ -17,5 +17,7 @@ namespace AgoraVai.Models
         public DbSet<Gerente> Gerente { get; set; }
         public DbSet<Sangria> sangria { get; set; }
         public DbSet<TipoPreco> TipoPreco { get; set; }
+        public DbSet<CodigoDeAtivacao> CodigoDeAtivacao { get; set; }
+        public DbSet<Customizacoes> Customizacoes { get; set; }
     }
 }

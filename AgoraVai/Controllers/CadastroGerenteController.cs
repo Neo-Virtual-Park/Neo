@@ -28,10 +28,27 @@ namespace AgoraVai.Controllers
 			db.SaveChanges();
 			gen.PessoaId = db.Pessoa.Where(x => x.cpf == usu.cpf).ToList().LastOrDefault().Id;
 			gen.Email = usu.Email;
-			gen.Senha = usu.Senha;
+            gen.Senha = SHA512(usu.Senha);
+            gen.ativo = false;
 			db.Gerente.Add(gen);
 			db.SaveChanges();
-			return RedirectToAction("Create", "Estacionamentoes");
+			return RedirectToAction("Create", "Estacionamentoes", new { id = gen.Id });
 		}
-	}
+
+        public static string SHA512(string input)
+        {
+            var bytes = System.Text.Encoding.UTF8.GetBytes(input);
+            using (var hash = System.Security.Cryptography.SHA512.Create())
+            {
+                var hashedInputBytes = hash.ComputeHash(bytes);
+
+                // Convert to text
+                // StringBuilder Capacity is 128, because 512 bits / 8 bits in byte * 2 symbols for byte 
+                var hashedInputStringBuilder = new System.Text.StringBuilder(128);
+                foreach (var b in hashedInputBytes)
+                    hashedInputStringBuilder.Append(b.ToString("X2"));
+                return hashedInputStringBuilder.ToString();
+            }
+        }
+    }
 }

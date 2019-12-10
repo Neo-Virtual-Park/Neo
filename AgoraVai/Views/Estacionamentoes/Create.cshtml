@@ -1,0 +1,61 @@
+﻿@model AgoraVai.Models.Estacionamento
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_TelaADM.cshtml";
+}
+
+<section class="section--login">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <h4 class="formulario__h4">Estacionamento</h4>
+        <div class="form form--login">
+            <div class="form--edges">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.LabelFor(model => model.nome, htmlAttributes: new { @class = "login--paragraph" })
+                @Html.EditorFor(model => model.nome, new { htmlAttributes = new { @class = "login--inputs" } })
+                @Html.ValidationMessageFor(model => model.nome, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form--edges">
+                @Html.LabelFor(model => model.estado, htmlAttributes: new { @class = "login--paragraph" })
+                @Html.EditorFor(model => model.estado, new { htmlAttributes = new { @class = "login--inputs" } })
+                @Html.ValidationMessageFor(model => model.estado, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form--edges">
+                @Html.LabelFor(model => model.bairro, htmlAttributes: new { @class = "login--paragraph" })
+                @Html.EditorFor(model => model.bairro, new { htmlAttributes = new { @class = "login--inputs" } })
+                @Html.ValidationMessageFor(model => model.bairro, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form--edges">
+                @Html.LabelFor(model => model.rua, htmlAttributes: new { @class = "login--paragraph" })
+                @Html.EditorFor(model => model.rua, new { htmlAttributes = new { @class = "login--inputs" } })
+                @Html.ValidationMessageFor(model => model.rua, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form--edges">
+                @Html.LabelFor(model => model.complemento, htmlAttributes: new { @class = "login--paragraph" })
+                @Html.EditorFor(model => model.complemento, new { htmlAttributes = new { @class = "login--inputs" } })
+                @Html.ValidationMessageFor(model => model.complemento, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form--edges">
+                <input type="submit" value="Create" class="btn btn--login btn__pattern" />
+            </div>
+        </div>
+    }
+
+</section>
+
+@*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

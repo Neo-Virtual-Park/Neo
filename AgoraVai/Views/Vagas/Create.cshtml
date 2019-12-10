@@ -19,12 +19,13 @@
 
             <div class="form--edges">
                 @Html.LabelFor(model => model.valor, htmlAttributes: new { @class = "form--paragraph" })
-                @Html.EditorFor(model => model.valor, new { htmlAttributes = new { @class = "login--inputs" } })
+                <input type="text" name="vv" class = "login--inputs"/>
+                @*@Html.EditorFor(model => model.valor, new { htmlAttributes = new { @class = "login--inputs" } })*@
                 @Html.ValidationMessageFor(model => model.valor, "", new { @class = "text-danger" })
             </div>
 
             <div class="form--edges">
-                @Html.LabelFor(model => model.QuantidadeHorasEspeciais, "Desconto em horas", htmlAttributes: new { @class = "form--paragraph" })
+                @Html.LabelFor(model => model.QuantidadeHorasEspeciais, "Quantidade de horas", htmlAttributes: new { @class = "form--paragraph" })
                 @Html.EditorFor(model => model.QuantidadeHorasEspeciais, new { htmlAttributes = new { @class = "login--inputs" } })
                 @Html.ValidationMessageFor(model => model.QuantidadeHorasEspeciais, "", new { @class = "text-danger" })
             </div>
@@ -42,7 +43,7 @@
             </div>
 
             <div class="form--edges">
-                <input type="submit" value="Create" class="btn btn--login btn__pattern" />
+                <input type="submit" value="Criar" class="btn btn--login btn__pattern" />
             </div>
         </div>
     }

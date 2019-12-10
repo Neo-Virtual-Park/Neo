@@ -161,7 +161,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CadastrarFuncController.cs" />
     <Compile Include="Controllers\CadastroGerenteController.cs" />
+    <Compile Include="Controllers\ConfirmacoesController.cs" />
     <Compile Include="Controllers\EntradasController.cs" />
+    <Compile Include="Controllers\EstacionamentoesController.cs" />
     <Compile Include="Controllers\FuncionariosController.cs" />
     <Compile Include="Controllers\GerentesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -169,15 +171,19 @@
     <Compile Include="Controllers\PessoasController.cs" />
     <Compile Include="Controllers\SangriasController.cs" />
     <Compile Include="Controllers\VagasController.cs" />
+    <Compile Include="Funcoes\Email.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CadastroFuncionario.cs" />
     <Compile Include="Models\CadastroGerente.cs" />
+    <Compile Include="Models\CodigoDeAtivacao.cs" />
     <Compile Include="Models\Contexto.cs" />
+    <Compile Include="Models\Customizacoes.cs" />
     <Compile Include="Models\CustomValidationCPFAttribute.cs" />
     <Compile Include="Models\Entrada.cs" />
+    <Compile Include="Models\EnviarEmailDeConfirmacao.cs" />
     <Compile Include="Models\Estacionamento.cs" />
     <Compile Include="Models\Funcionario.cs" />
     <Compile Include="Models\Gerente.cs" />
@@ -185,6 +191,7 @@
     <Compile Include="Models\Pessoa.cs" />
     <Compile Include="Models\Sangria.cs" />
     <Compile Include="Models\TipoPreco.cs" />
+    <Compile Include="Models\TrocarSenha.cs" />
     <Compile Include="Models\Vaga.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -201,7 +208,6 @@
     <Content Include="img\car.jpg" />
     <Content Include="img\good.jpg" />
     <Content Include="img\login.jpg" />
-    <Content Include="img\undraw_page_not_found_su7k.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -276,6 +282,13 @@
     <Content Include="Views\Home\erro.cshtml" />
     <Content Include="Views\Gerentes\Registros.cshtml" />
     <Content Include="Views\Gerentes\SangriasLista.cshtml" />
+    <Content Include="Views\Estacionamentoes\Create.cshtml" />
+    <Content Include="Views\Estacionamentoes\Delete.cshtml" />
+    <Content Include="Views\Estacionamentoes\Details.cshtml" />
+    <Content Include="Views\Estacionamentoes\Edit.cshtml" />
+    <Content Include="Views\Estacionamentoes\Index.cshtml" />
+    <Content Include="Views\Confirmacoes\ConfirmarEmail.cshtml" />
+    <Content Include="Views\Gerentes\Customizar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

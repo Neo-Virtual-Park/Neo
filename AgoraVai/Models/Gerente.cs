@@ -15,13 +15,14 @@ namespace AgoraVai.Models
 		[EmailAddress]
 		public string Email { get; set; }
 
-		[Required]
-		[DataType(DataType.Password)]
-		[StringLength(10, MinimumLength = 8, ErrorMessage = "A senha deve ter entre 8 e 12 caracteres")]
-		[RegularExpression("^(?=.*)(?=.*[a-zA-Z])(?!.*[_\x7B-\xFF]).{8,12}$", ErrorMessage = "A Senha precisa conter pelo menos um numero, um caractere maiusculo e um minusculo.")]
+		
 		public string Senha { get; set; }
 
 		public int PessoaId { get; set; }
 		public virtual Pessoa Pessoa { get; set; }
-	}
+
+        public bool ativo { get; set; }
+        public int CodigoDeAtivacaoId { get; set; }
+        public virtual CodigoDeAtivacao CodigoDeAtivacao { get; set; }
+    }
 }

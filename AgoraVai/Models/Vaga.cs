@@ -13,13 +13,15 @@ namespace AgoraVai.Models
 
         public string Tipo { get; set; }
 
-        public float valor { get; set; }
+        public decimal valor { get; set; }
+
+        public decimal ValorMensal { get; set; }
 
         public int Quantidade { get; set; }
 
         public int QuantidadeHorasEspeciais { get; set; }
 
-        public float valorHorasEspeciais { get; set; }
+        public decimal valorHorasEspeciais { get; set; }
 
         public int EstacionamentoId { get; set; }
         public virtual Estacionamento Estacionamento { get; set; }

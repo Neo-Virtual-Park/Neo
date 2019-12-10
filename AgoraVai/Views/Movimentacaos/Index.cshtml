@@ -39,8 +39,10 @@
             <th>
                 Tempo
             </th>
+            <th>
+                Total
+            </th>
             <th>Finalizar</th>
-            @*<th></th>*@
         </tr>
 
 
@@ -65,7 +67,62 @@
                 <td class="rds">
                     @Html.DisplayFor(modelItem => item.hora_entrada)
                 </td>
+                @*<td class="specialhour" style="display: none">
+                    @{
+                        ViewBag.id2 = item.Vaga.valorHorasEspeciais;
+                    }
+
+                    @ViewBag.id2
+
+                </td>
+                <td class="value" style="display: none">
+                    @{
+                        ViewBag.id = item.Vaga.valor;
+                    }
+                    @ViewBag.id
+
+                </td>
+                <td class="qtd" style="display: none">
+                    @{
+                        ViewBag.id3 = item.Vaga.QuantidadeHorasEspeciais;
+                    }
+                    @ViewBag.id3
+
+                </td>*@
                 <td class="timer"></td>
+                <td class="totpreco">
+                    @{
+                        DateTime data = item.hora_entrada;
+                        var tempo = (DateTime.Now.Hour * 60) + DateTime.Now.Minute;
+                        tempo = tempo - (data.Hour * 60) + data.Minute;
+
+                        if (tempo < 0)
+                        {
+                            tempo = tempo * -1;
+                        }
+                        decimal calc = 0;
+                        var inter = item.Vaga.QuantidadeHorasEspeciais * 60;
+
+                        for (var j = tempo; j >= 60; j -= 60)
+                        {
+
+                            if (inter > 0)
+                            {
+                                inter -= 60;
+                                calc += item.Vaga.valorHorasEspeciais;
+                            }
+                            else
+                            {
+                                inter -= 60;
+                                calc += item.Vaga.valor;
+                            }
+                        }
+
+                        ViewBag.mostrar = calc;
+                    }
+                    @ViewBag.mostrar
+                </td>
+                @*<td class="timer2"></td>*@
                 <td>
                     @Html.ActionLink("Finalizar", "Edit", new { id = item.Id }, new { @class = "btn btn--login btn__pattern btn--padding" })
                     @*@Html.ActionLink("Detalhes", "Details", new { id = item.Id })*@
@@ -105,20 +162,50 @@
     function tempoAntigo() {
         //pega tempo antigo separadamente
         for (var i = 0; i < document.querySelectorAll('.timer').length; i++) {
-            var timeStamp = document.getElementsByClassName('rds')[i].innerHTML; //pega os valores do tempo de entrada
+            var timeStamp = document.getElementsByClassName('rds')[i].innerHTML.trim(); //pega os valores do tempo de entrada
             tempos.push(timeStamp); //Adiciona o tempo atual da linha ao tempos array
-            oldDias[i] = `${Array.from(tempos[i])[21] + Array.from(tempos[i])[22]}`;
-            oldMeses[i] = `${Array.from(tempos[i])[24] + Array.from(tempos[i])[25]}`;
-            oldHoras[i] = `${Array.from(tempos[i])[32] + Array.from(tempos[i])[33]}`;
-            oldMinutos[i] = `${Array.from(tempos[i])[35] + Array.from(tempos[i])[36]}`;
-            oldSegundos[i] = `${Array.from(tempos[i])[38] + Array.from(tempos[i])[39]}`;
+            oldDias[i] = `${Array.from(tempos[i])[0] + Array.from(tempos[i])[1]}`;
+            oldMeses[i] = `${Array.from(tempos[i])[3] + Array.from(tempos[i])[4]}`;
+            oldHoras[i] = `${Array.from(tempos[i])[11] + Array.from(tempos[i])[12]}`;
+            oldMinutos[i] = `${Array.from(tempos[i])[14] + Array.from(tempos[i])[15]}`;
+            oldSegundos[i] = `${Array.from(tempos[i])[17] + Array.from(tempos[i])[18]}`;
+
         }
     }
     tempoAntigo();
     /*var cronometroDias = [], cronometroHoras = [], cronometroMinutos = [], cronometroSegundos = [];*/ //Pega horario toral do cronometro
+
+    var valores = [], valor = [];
+    var valoresespec = [], valorespecial = [];
+    var qtd = [], qtdvalor = [];
+
+
+
+    function pegarcalculo() {
+        //pega tempo antigo separadamente
+        for (var i = 0; i < document.querySelectorAll('.timer2').length; i++) {
+            var valoresstamp = document.getElementsByClassName('value')[i].textContent.trim();
+            var valoresstamp2 = document.getElementsByClassName('specialhour')[i].textContent.trim();//pega os valores do tempo de entrada
+            var valoresstamp3 = document.getElementsByClassName('qtd')[i].textContent.trim();
+
+            valores.push(valoresstamp); //Adiciona o tempo atual da linha ao tempos array
+            valoresespec.push(valoresstamp2);
+            qtd.push(valoresstamp3);
+
+            valor[i] = `${Array.from(valores[i])}`;
+            valorespecial[i] = `${Array.from(valoresespec[i])}`;
+            qtdvalor[i] = `${Array.from(qtd[i])}`;
+
+
+        }
+    }
+    pegarcalculo();
+
+
     var cronometroDias = [],
         cronometroHoras = [],
         cronometroMinutos = [],
+        calculo = [],
         Remainder = [];
     //pegar Hora atual
     setInterval(function () {
@@ -127,7 +214,6 @@
         for (var i = 0; i < document.querySelectorAll('.timer').length; i++) {
             //exibe cronometro
             var print = new Date();
-
             var tempo = Number(((print.getHours() * 60) + print.getMinutes()));
             tempo = tempo - (Number((oldHoras[i] * 60)) + Number(oldMinutos[i]));
 
@@ -135,20 +221,56 @@
                 tempo * -1;
             }
 
-            console.log(Number((print.getHours() + print.getMinutes())));
             cronometroHoras[i] = 0;
             cronometroMinutos[i] = tempo;
+            var calc = 0;
+            var inter = qtdvalor[i] * 60;
+
             for (var j = tempo; j >= 60; j -= 60) {
                 cronometroHoras[i] += 1;
                 cronometroMinutos[i] = j - 60;
+
+                if (inter > 0) {
+                    inter -= 60;
+                    calc += valorespecial[i];
+                } else {
+                    inter -= 60;
+                    calc += valor[i];
+                }
             }
 
+            calculo[i] = calc;
+            var corn = document.getElementsByClassName("totpreco")[i].innerHTML;
+
             document.getElementsByClassName("timer")[i].innerHTML = `${cronometroHoras[i]}:${cronometroMinutos[i]}`;
+            document.getElementsByClassName("totpreco")[i].innerHTML = `${corn}`;
+
+            var total = 0;
         }
 
 
     }, 1000);
     //CRONOMETRO
+
+
+    //var valor = [], horaEspecial = [];
+    //function mostraCalculo() {
+    //    for (var i = 0; i < document.querySelectorAll('.specialhour').length; i++) {
+    //        var specialHour = document.getElementById('specialhour').textContent;
+    //        //console.log(`${specialHour}`);
+
+
+    //    }
+    //    for (var i = 0; i < document.querySelectorAll('.value').length; i++) {
+    //        var value = document.getElementById('value').textContent;
+    //        //console.log(`${value}`);
+
+
+    //    }
+
+    //}
+    //mostraCalculo();
+
 
 
 

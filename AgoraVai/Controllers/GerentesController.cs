@@ -24,11 +24,43 @@ namespace AgoraVai.Controllers
             calculargraf(teste.Year.ToString());
 
             int sl = 0;
-            sl = Convert.ToInt32(Session["FunID"]);
+            sl = Convert.ToInt32(Session["GenID"]);
             idgerente = sl;
             Gerente gen = db.Gerente.Find(sl);
             ViewBag.nomedousuario = gen.Pessoa.Nome;
             //ViewBag.Ex = db.Movimentacao.Where(x => x.Hora_saida != null).Sum(x => x.Valor_pagar == null ? 0 : x.Valor_pagar);
+            return View();
+        }
+
+        public ActionResult Customizar()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Customizar(Customizacoes cust)
+        {
+            Gerente gen = db.Gerente.Find(idgerente);
+            Estacionamento est = db.Estacionamento.Where(x => x.GerenteId == gen.Id).ToList().FirstOrDefault();
+            if (est.Customizacoes == null)
+            {
+                est.Customizacoes = new Customizacoes();
+                est.Customizacoes.MinutosDeTolerancia = cust.MinutosDeTolerancia;
+                est.Customizacoes.ValorInicialCaixa = cust.ValorInicialCaixa;
+                db.Customizacoes.Add(est.Customizacoes);
+                db.Entry(est).State = EntityState.Modified;
+                db.SaveChanges();
+                est.CustomizacoesId = db.Customizacoes.Where(x => x.Id == est.Customizacoes.Id).ToList().LastOrDefault().Id;
+                db.SaveChanges();
+            }
+            else
+            {
+                est.Customizacoes.MinutosDeTolerancia = cust.MinutosDeTolerancia;
+                est.Customizacoes.ValorInicialCaixa = cust.ValorInicialCaixa;
+                db.Entry(est).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+            TempData["MSG"] = "Dados Salvos";
             return View();
         }
 
@@ -64,11 +96,11 @@ namespace AgoraVai.Controllers
         public void calcularcards()
         {
             int sl = 0;
-            sl = Convert.ToInt32(Session["FunID"]);
-            float? dia = 0;
-            float? sem = 0;
-            float? mes = 0;
-            float? html = 1260;
+            sl = Convert.ToInt32(Session["GenID"]);
+            decimal? dia = 0;
+            decimal? sem = 0;
+            decimal? mes = 0;
+            decimal? html = 1260;
             ViewBag.qualquercoisa = html;
 
             DateTime data;
@@ -100,9 +132,9 @@ namespace AgoraVai.Controllers
         public void calculargraf(string data)
         {
             int datacon = Convert.ToInt32(data);
-            float[] mes = new float[12];
+            decimal[] mes = new decimal[12];
             int sl = 0;
-            sl = Convert.ToInt32(Session["FunID"]);
+            sl = Convert.ToInt32(Session["GenID"]);
             DateTime data2;
             // DateTime data3 = Convert.ToDateTime(datacon);
 
@@ -143,7 +175,7 @@ namespace AgoraVai.Controllers
         public ActionResult Registros()
         {
             int sl = 0;
-            sl = Convert.ToInt32(Session["FunID"]);
+            sl = Convert.ToInt32(Session["GenID"]);
             ViewBag.soma = 0;
             Gerente gen = db.Gerente.Find(sl);
             var mov = db.Movimentacao.Where(x => x.Valor_pagar > 0 && x.Funcionario.Estacionamento.GerenteId == gen.Id).ToList();
@@ -158,7 +190,7 @@ namespace AgoraVai.Controllers
         public ActionResult Registros(string data3, string data4)
         {
             int sl = 0;
-            sl = Convert.ToInt32(Session["FunID"]);
+            sl = Convert.ToInt32(Session["GenID"]);
             DateTime data1 = Convert.ToDateTime(data3);
             DateTime data2 = Convert.ToDateTime(data4);
             Gerente gen = db.Gerente.Find(sl);

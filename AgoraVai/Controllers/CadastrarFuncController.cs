@@ -20,7 +20,7 @@ namespace AgoraVai.Controllers
 		public ActionResult Create(CadastroFuncionario usu)
 		{
             int sl = 0;
-            sl = Convert.ToInt32(Session["FunID"]);
+            sl = Convert.ToInt32(Session["GenID"]);
 
             Funcionario func = new Funcionario();
 			func.Pessoa = new Pessoa();
@@ -31,12 +31,28 @@ namespace AgoraVai.Controllers
 			db.SaveChanges();
 			func.PessoaId = db.Pessoa.Where(x => x.cpf == usu.cpf).ToList().LastOrDefault().Id;
 			func.Email = usu.Email;
-			func.Senha = usu.Senha;
+			func.Senha = SHA512(usu.Senha);
             func.EstacionamentoId = sl;
             func.Estacionamento = db.Estacionamento.Where(x => x.Id == func.EstacionamentoId ).ToList().LastOrDefault();
+            func.ativo = false;
             db.Funcionario.Add(func);
 			db.SaveChanges();
             return RedirectToAction("Index","Gerentes");
         }
-	}
+        public static string SHA512(string input)
+        {
+            var bytes = System.Text.Encoding.UTF8.GetBytes(input);
+            using (var hash = System.Security.Cryptography.SHA512.Create())
+            {
+                var hashedInputBytes = hash.ComputeHash(bytes);
+
+                // Convert to text
+                // StringBuilder Capacity is 128, because 512 bits / 8 bits in byte * 2 symbols for byte 
+                var hashedInputStringBuilder = new System.Text.StringBuilder(128);
+                foreach (var b in hashedInputBytes)
+                    hashedInputStringBuilder.Append(b.ToString("X2"));
+                return hashedInputStringBuilder.ToString();
+            }
+        }
+    }
 }

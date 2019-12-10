@@ -5,13 +5,12 @@
     Layout = "~/Views/Shared/_Movimentacao.cshtml";
 }
 
-<h2>Index</h2>
-
-<p>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
+
+</p>*@
+<table class="tabela">
+    <tr class="tabela--infos tabela__bold">
         <th>
             @Html.DisplayNameFor(model => model.Estacionamento.nome)
         </th>
@@ -24,11 +23,10 @@
         <th>
             @Html.DisplayNameFor(model => model.Senha)
         </th>
-        <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
+    <tr class="tabela--infos">
         <td>
             @Html.DisplayFor(modelItem => item.Estacionamento.nome)
         </td>

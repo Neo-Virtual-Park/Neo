@@ -27,19 +27,20 @@
     font-size: 17px;
     text-transform: capitalize;
 }
+
 .form--paragraph {
     font-size: 17px;
     text-transform: capitalize;
-
 }
 /*CUIDADO COM ESSA MERDA*/
 .central {
     text-align: center;
     padding: 5px;
-    display:flex; 
+    display: flex;
     justify-content: center;
     flex-flow: row nowrap;
 }
+
 .login--inputs {
     all: unset;
     height: 40px;
@@ -48,6 +49,7 @@
     margin: 0 10px;
     width: 100%;
 }
+
 .login--inputs__add {
     padding: 0 10px;
     margin: 0 10px;
@@ -60,6 +62,7 @@
     background-color: #131312;
     color: white;
 }
+
 .white {
     color: white;
     font-size: 17px;
@@ -234,9 +237,7 @@ footer {
     font-size: 25px;
 }
 
-.tabela__up {
-    
-}
+
 .section--login {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -244,9 +245,9 @@ footer {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: flex-start;
-/*AQUI AQUI AQUI AQUI AQUI AQUI*/
+    /*AQUI AQUI AQUI AQUI AQUI AQUI*/
     margin: 100px 0;
-/*AQUI AQUI AQUI AQUI AQUI AQUI*/
+    /*AQUI AQUI AQUI AQUI AQUI AQUI*/
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
@@ -323,7 +324,6 @@ footer {
 
 .padding {
     padding-right: 10px;
-
 }
 
 
@@ -345,6 +345,7 @@ footer {
     flex-flow: row nowrap;
     padding: 10px 40px;
 }
+
     .navegation img {
         width: 60px;
         height: 60px;
@@ -371,8 +372,10 @@ footer {
 */
 
 .tabela {
-    width: 92%;
+    margin: 10px 0;
+    width: 95%;
     height: auto;
+    border-collapse: collapse;
 }
 
 
@@ -380,10 +383,11 @@ footer {
     background-color: #343434;
     color: white;
     font-weight: 700;
+    text-align: justify;
     font-size: 18px;
 }
 
-.tabela--infos {
+/*.tabela--infos {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -397,9 +401,21 @@ footer {
     -webkit-box-direction: normal;
     -ms-flex-flow: row nowrap;
     flex-flow: row nowrap;
-    text-align: center;
+    text-align: left;
     padding: 20px 25px;
     margin: 10px 0;
+    border: 1px solid #131312;
+    border-radius: 100px;
+}*/
+
+.tabela--infos, th, td {
+    padding: 20px 25px;
+    text-align: center;
+    margin: 30px 0;
+    /*border: 1px solid #131312;*/
+}
+
+tr {
     border: 1px solid #131312;
     border-radius: 100px;
 }
@@ -472,6 +488,7 @@ footer {
     align-items: center;
     justify-content: center;
 }
+
 .fatu__size {
     width: 88%;
     margin: 0 auto;
@@ -491,9 +508,4 @@ footer {
 .fatu-green {
     background-color: #47ff47;
     box-shadow: 0 4px 6px #004400;
-}
-.error {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }

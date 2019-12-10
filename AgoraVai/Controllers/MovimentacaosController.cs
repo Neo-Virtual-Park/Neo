@@ -31,6 +31,9 @@ namespace AgoraVai.Controllers
 
             Funcionario fun = db.Funcionario.Find(sl);
             ViewBag.nomedousuario = fun.Pessoa.Nome;
+
+
+            
             return View(db.Movimentacao.Where(x => x.Valor_pagar == 0 && x.Funcionario.EstacionamentoId == fun.EstacionamentoId).ToList());
         }
 
@@ -81,7 +84,7 @@ namespace AgoraVai.Controllers
         {
             Movimentacao mov = db.Movimentacao.Find(id);
             ViewBag.horaSaida = DateTime.Now;
-            ViewBag.Vp = calcularpreco(mov.hora_entrada, DateTime.Now, mov.Vaga);
+            ViewBag.Vp = calcularpreco(mov.hora_entrada, DateTime.Now, mov.Vaga, mov.Tipo);
 
             if (id == null)
             {
@@ -111,7 +114,7 @@ namespace AgoraVai.Controllers
             //movimentacao.hora_entrada = mov.hora_entrada;
             //movimentacao.FuncionarioId = mov.FuncionarioId;
             mov.Hora_saida = DateTime.Now;
-            mov.Valor_pagar = calcularpreco(mov.hora_entrada, mov.Hora_saida.Value, mov.Vaga);
+            mov.Valor_pagar = calcularpreco(mov.hora_entrada, mov.Hora_saida.Value, mov.Vaga, mov.Tipo);
 
             if (ModelState.IsValid)
             {
@@ -123,35 +126,45 @@ namespace AgoraVai.Controllers
             return View(movimentacao);
         }
 
-        public float calcularpreco(DateTime ent, DateTime sai, Vaga vag)
+        public decimal calcularpreco(DateTime ent, DateTime sai, Vaga vag, int tipo)
         {
-            float total = 0f;
+            decimal total = 0;
             TimeSpan tmp = sai - ent;
             int conta = 0;
+            int sl = 0;
+            sl = Convert.ToInt32(Session["FunID"]);
+            Funcionario fun = db.Funcionario.Where(f => f.Id == sl).FirstOrDefault();
+            Estacionamento est = db.Estacionamento.Where(e => e.Id == fun.EstacionamentoId).FirstOrDefault();
 
             if (vag.QuantidadeHorasEspeciais > 0)
                 conta = vag.QuantidadeHorasEspeciais * 60;
 
             int tempo = (tmp.Hours) * 60 + tmp.Minutes;
-
-			if (tempo >= 60)
-			{
-				for (int i = tempo; i >= 0; i -= 60)
-				{
-					if (tempo > conta)
-					{
-						total += vag.valorHorasEspeciais;
-					}
-					else
-					{
-						total += vag.valor;
-					}
-				}
-			}
-			else
-			{
-				total += vag.valor;
-			}
+            if (tipo == 1)
+            {
+                if (tempo >= 60 + est.Customizacoes.MinutosDeTolerancia)
+                {
+                    for (int i = tempo; i >= 0; i -= 60 + est.Customizacoes.MinutosDeTolerancia)
+                    {
+                        if (tempo > conta)
+                        {
+                            total += vag.valorHorasEspeciais;
+                        }
+                        else
+                        {
+                            total += vag.valor;
+                        }
+                    }
+                }
+                else
+                {
+                    total += vag.valor;
+                }
+            }
+            else
+            {
+                total += vag.ValorMensal;
+            }
             return total;
         }
 
